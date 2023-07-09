@@ -1,7 +1,11 @@
 ﻿FAE_pm_bastion_forts = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_bastion_forts.dds"
     
     is_default = yes
+    
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
     
     building_modifiers = {
         level_scaled = {
@@ -11,9 +15,13 @@
             building_employment_engineers_add =  50
             building_employment_laborers_add  = 450
             
-            building_training_rate_add = 10
-            
-            unit_defense_add = 10 # is this abuse? lol
+            building_training_rate_add = 30
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 2
         }
     }
     
@@ -23,7 +31,11 @@
 }
 
 FAE_pm_polygonal_forts = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_polygonal_forts.dds"
+    
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
     
     unlocking_technologies = {
         breech_loading_artillery
@@ -37,9 +49,13 @@ FAE_pm_polygonal_forts = {
             building_employment_engineers_add = 100
             building_employment_laborers_add  = 400
             
-            building_training_rate_add = 5
-            
-            unit_defense_add = 15
+            building_training_rate_add = 20
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 3
         }
     }
     
@@ -49,7 +65,11 @@ FAE_pm_polygonal_forts = {
 }
 
 FAE_pm_bunkers = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_bunkers.dds"
+    
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
     
     unlocking_technologies = {
         concrete_fortifications
@@ -63,14 +83,35 @@ FAE_pm_bunkers = {
             building_employment_engineers_add = 150
             building_employment_laborers_add  = 350
             
-            # building_training_rate_add = 0
-            
-            unit_defense_add = 20
+            building_training_rate_add = 10
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 4
         }
     }
     
     timed_modifiers = {
         FAE_md_fort_reconstruction
+    }
+}
+
+FAE_pm_fort_design_mothballed = {
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_fort_design_mothballed.dds"
+    
+    unlocking_production_methods = {
+        FAE_pm_mothballed
+    }
+    
+    building_modifiers = {
+        level_scaled = {
+            building_employment_engineers_add = 10
+            building_employment_laborers_add  = 40
+            
+            building_training_rate_add = 100 # no need to have slow hiring to emulate slow fort maintenance/repairs
+        }
     }
 }
 

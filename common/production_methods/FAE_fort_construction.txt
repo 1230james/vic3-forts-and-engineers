@@ -1,9 +1,18 @@
 ﻿FAE_pm_wood_palisades = {
     texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
     
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
+    
     building_modifiers = {
         workforce_scaled = {
-            building_input_wood_add = 50
+            building_input_wood_add  = 50
+            building_input_tools_add = 1
+        }
+        
+        level_scaled = {
+            building_training_rate_add = 30
         }
     }
     
@@ -17,15 +26,26 @@ FAE_pm_stone_iron = {
     
     is_default = yes
     
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
+    
     building_modifiers = {
         workforce_scaled = {
-            building_input_iron_add = 50
+            building_input_iron_add  = 50
+            building_input_tools_add = 2
         }
         
         level_scaled = {
             building_employment_laborers_add = 100
             
-            unit_defense_add = 5
+            building_training_rate_add = 20
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 1
         }
     }
     
@@ -37,6 +57,10 @@ FAE_pm_stone_iron = {
 FAE_pm_steel_concrete = {
     texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
     
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
+    
     unlocking_technologies = {
         reinforced_concrete
     }
@@ -44,16 +68,41 @@ FAE_pm_steel_concrete = {
     building_modifiers = {
         workforce_scaled = {
             building_input_steel_add = 50
+            building_input_tools_add = 5
         }
         
         level_scaled = {
             building_employment_laborers_add = 200
             
-            unit_defense_add = 10
+            building_training_rate_add = 10
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 2
         }
     }
     
     timed_modifiers = {
         FAE_md_fort_reconstruction
+    }
+}
+
+FAE_pm_fort_construction_mothballed = {
+    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    
+    unlocking_production_methods = {
+        FAE_pm_mothballed
+    }
+    
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_tools_add = 1
+        }
+        
+        level_scaled = {
+            building_employment_laborers_add = 10
+        }
     }
 }

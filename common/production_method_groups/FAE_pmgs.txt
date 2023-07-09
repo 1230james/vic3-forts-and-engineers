@@ -6,6 +6,7 @@
         FAE_pm_bastion_forts
         FAE_pm_polygonal_forts
         FAE_pm_bunkers
+        FAE_pm_fort_design_mothballed
     }
 }
 
@@ -17,6 +18,7 @@ FAE_pmg_fort_construction = {
         FAE_pm_wood_palisades
         FAE_pm_stone_iron
         FAE_pm_steel_concrete
+        FAE_pm_fort_construction_mothballed
     }
 }
 
@@ -28,6 +30,7 @@ FAE_pmg_fort_heavy_armament = {
         FAE_pm_parapets
         FAE_pm_casemates
         FAE_pm_turrets
+        FAE_pm_fort_heavy_arms_mothballed
     }
 }
 
@@ -39,6 +42,7 @@ FAE_pmg_fort_small_armament = {
         FAE_pm_small_arms
         FAE_pm_gatling_guns
         FAE_pm_auto_machine_guns
+        FAE_pm_small_arms_mothballed
     }
 }
 

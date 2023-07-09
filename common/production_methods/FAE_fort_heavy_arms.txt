@@ -3,13 +3,20 @@
     
     is_default = yes
     
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
+    
     building_modifiers = {
         workforce_scaled = {
             building_input_artillery_add = 1
+            building_input_tools_add     = 1
         }
-        
-        level_scaled = {
-            unit_defense_add = 10
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 1
         }
     }
     
@@ -21,14 +28,21 @@
 FAE_pm_casemates = {
     texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
     
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
+    
     building_modifiers = {
         workforce_scaled = {
             building_input_artillery_add  = 1
             building_input_ammunition_add = 1
+            building_input_tools_add      = 1
         }
-        
-        level_scaled = {
-            unit_defense_add = 20
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 2
         }
     }
     
@@ -40,6 +54,10 @@ FAE_pm_casemates = {
 FAE_pm_turrets = {
     texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
     
+    unlocking_production_methods = {
+        FAE_pm_normal
+    }
+    
     unlocking_technologies = {
         reinforced_concrete
     }
@@ -48,17 +66,36 @@ FAE_pm_turrets = {
         workforce_scaled = {
             building_input_artillery_add  = 2
             building_input_ammunition_add = 2
+            building_input_tools_add      = 2
             building_input_engines_add    = 1
         }
         
         level_scaled = {
             building_employment_machinists_add = 100
-            
-            unit_defense_add = 40
+        }
+    }
+    
+    state_modifiers = {
+        workforce_scaled = {
+            unit_defense_add = 3
         }
     }
     
     timed_modifiers = {
         FAE_md_fort_rearmament
+    }
+}
+
+FAE_pm_fort_heavy_arms_mothballed = {
+    texture = "gfx/interface/icons/production_method_icons/no_artillery.dds"
+    
+    unlocking_production_methods = {
+        FAE_pm_mothballed
+    }
+    
+    building_modifiers = {
+        workforce_scaled = {
+            building_input_tools_add = 0.5
+        }
     }
 }
