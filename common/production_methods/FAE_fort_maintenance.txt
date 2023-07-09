@@ -1,0 +1,24 @@
+﻿FAE_pm_normal = {
+    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    
+    is_default = yes
+}
+
+FAE_pm_mothballed = {
+    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    
+    building_modifiers = {
+        unscaled = {
+            building_employment_engineers_mult  = -0.95
+            building_employment_laborers_mult   = -0.95
+            building_employment_machinists_mult = -1
+            building_employment_officers_mult   = -1
+            building_employment_soldiers_mult   = -1
+            building_input_mult                 = -0.5
+        }
+    }
+    
+    timed_modifiers = {
+        FAE_md_fort_recommission
+    }
+}

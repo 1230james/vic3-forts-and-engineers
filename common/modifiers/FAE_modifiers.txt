@@ -1,0 +1,18 @@
+﻿FAE_md_fort_reconstruction = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
+    unit_offense_mult = -0.8
+    unit_defense_mult = -0.8
+}
+
+FAE_md_fort_rearmament = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
+    unit_offense_mult = -0.2
+    unit_defense_mult = -0.2
+}
+
+FAE_md_fort_recommission = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+    building_input_small_arms_mult = -0.5
+    building_input_artillery_mult  = -0.5
+    building_input_ammunition_mult = -0.5
+}
