@@ -1,7 +1,7 @@
 ﻿state_FAE_building_forts_max_level_add = {
-	good = yes
-	percent = no
-	num_decimals = 0
+    good = yes
+    percent = no
+    num_decimals = 0
 }
 
 building_input_small_arms_mult = {

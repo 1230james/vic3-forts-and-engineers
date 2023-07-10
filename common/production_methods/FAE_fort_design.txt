@@ -17,9 +17,7 @@
             
             building_training_rate_add = 30
         }
-    }
-    
-    state_modifiers = {
+        
         workforce_scaled = {
             unit_defense_add = 2
         }
@@ -51,9 +49,7 @@ FAE_pm_polygonal_forts = {
             
             building_training_rate_add = 20
         }
-    }
-    
-    state_modifiers = {
+        
         workforce_scaled = {
             unit_defense_add = 3
         }
@@ -85,9 +81,7 @@ FAE_pm_bunkers = {
             
             building_training_rate_add = 10
         }
-    }
-    
-    state_modifiers = {
+        
         workforce_scaled = {
             unit_defense_add = 4
         }

@@ -29,12 +29,8 @@ FAE_pm_gatling_guns = {
         workforce_scaled = {
             building_input_artillery_add  = 0.5
             building_input_ammunition_add = 0.5
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
-            unit_defense_add = 0.5
+            
+            unit_defense_add = 1
         }
     }
     
@@ -58,12 +54,8 @@ FAE_pm_auto_machine_guns = {
         workforce_scaled = {
             building_input_artillery_add  = 1
             building_input_ammunition_add = 1
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
-            unit_defense_add = 1
+            
+            unit_defense_add = 2
         }
     }
     

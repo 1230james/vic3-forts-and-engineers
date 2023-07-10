@@ -34,18 +34,14 @@ FAE_pm_stone_iron = {
         workforce_scaled = {
             building_input_iron_add  = 50
             building_input_tools_add = 2
+            
+            unit_defense_add = 1
         }
         
         level_scaled = {
             building_employment_laborers_add = 100
             
             building_training_rate_add = 20
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
-            unit_defense_add = 1
         }
     }
     
@@ -69,18 +65,14 @@ FAE_pm_steel_concrete = {
         workforce_scaled = {
             building_input_steel_add = 50
             building_input_tools_add = 5
+            
+            unit_defense_add = 2
         }
         
         level_scaled = {
             building_employment_laborers_add = 200
             
             building_training_rate_add = 10
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
-            unit_defense_add = 2
         }
     }
     

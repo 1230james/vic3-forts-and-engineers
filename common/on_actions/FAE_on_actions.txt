@@ -1,0 +1,72 @@
+﻿# Root = attacker or defender country
+# scope:battle = battle
+# scope:attacker = attacking commander
+# scope:defender = defending commander
+# scope:state = location state
+on_battle_started = {
+    on_actions = {
+        FAE_on_battle_started
+    }
+}
+
+FAE_on_battle_started = {
+    effect = {
+        if = {
+            limit = {
+                scope:state = {
+                    owner        = scope:defender
+                    has_building = FAE_building_forts
+                }
+            }
+            
+            # Attacker has engineers
+            if = {
+                limit = {
+                    scope:attacker = {
+                        # TODO: Check engineers
+                    }
+                }
+            }
+            
+            # Attacker does not have engineers
+            else = {
+                scope:defender = {
+                    # TODO
+                }
+            }
+        }
+    }
+}
+
+### Remove overstacking debuffs on battle end
+#   Root = attacker or defender country
+#   scope:battle = battle
+#   scope:attacker = attacking commander
+#   scope:defender = defending commander
+#   scope:state = location state
+on_battle_ended = {
+    on_actions = {
+        FAE_on_battle_ended
+    }
+}
+
+FAE_on_battle_ended = {
+    effect = {
+        scope:attacker = {
+            if = {
+                limit = {
+                    #has_modifier = ACL_overstacking_penalty_modifier
+                }
+                #remove_modifier = ACL_overstacking_penalty_modifier
+            }
+        }
+        scope:defender = {
+            if = {
+                limit = {
+                    #has_modifier = ACL_overstacking_penalty_modifier
+                }
+                #remove_modifier = ACL_overstacking_penalty_modifier
+            }
+        }
+    }
+}

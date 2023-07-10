@@ -11,11 +11,7 @@
         workforce_scaled = {
             building_input_artillery_add = 1
             building_input_tools_add     = 1
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
+            
             unit_defense_add = 1
         }
     }
@@ -37,11 +33,7 @@ FAE_pm_casemates = {
             building_input_artillery_add  = 1
             building_input_ammunition_add = 1
             building_input_tools_add      = 1
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
+            
             unit_defense_add = 2
         }
     }
@@ -68,16 +60,12 @@ FAE_pm_turrets = {
             building_input_ammunition_add = 2
             building_input_tools_add      = 2
             building_input_engines_add    = 1
+            
+            unit_defense_add = 3
         }
         
         level_scaled = {
             building_employment_machinists_add = 100
-        }
-    }
-    
-    state_modifiers = {
-        workforce_scaled = {
-            unit_defense_add = 3
         }
     }
     
