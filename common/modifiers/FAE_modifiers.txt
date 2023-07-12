@@ -1,4 +1,5 @@
-﻿FAE_md_fort_reconstruction = {
+﻿# Fort PM changed modifiers
+FAE_md_fort_reconstruction = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
     unit_offense_mult = -0.8
     unit_defense_mult = -0.8
@@ -17,12 +18,33 @@ FAE_md_fort_recommission = {
     building_input_ammunition_mult = -0.5
 }
 
-FAE_md_fort_defense = {
+# Fort combat modifiers
+FAE_md_fort_defense_strong = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
     unit_defense_add = 1
 }
 
-FAE_md_fort_sapped = {
+FAE_md_fort_defense_weak = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
     unit_defense_add = 1
+}
+
+FAE_md_fort_kill_rate_strong = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+    unit_kill_rate_add = .01
+}
+
+FAE_md_fort_kill_rate_weak = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+    unit_kill_rate_add = .01
+}
+
+FAE_md_fort_provinces_lost_strong = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+    unit_provinces_lost_mult = .01
+}
+
+FAE_md_fort_provinces_lost_weak = {
+    icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_positive.dds
+    unit_provinces_lost_mult = .01
 }

@@ -12,38 +12,70 @@ on_battle_started = {
 FAE_on_battle_started = {
     effect = {
         if = {
+            # Conditional
             limit = {
+                # State must have fort owned by the defenders
+                # TODO: Allow defenders' allies to use forts
                 scope:state = {
-                    owner        = scope:defender
+                    owner        = scope:defender.owner
                     has_building = FAE_building_forts
+                }
+                
+                # Guard
+                # This on_action is fired twice (once for each country) for some reason
+                scope:defender = {
+                    NOR = {
+                        has_modifier = FAE_md_fort_defense_strong
+                        has_modifier = FAE_md_fort_defense_weak
+                    }
                 }
             }
             
             # Attacker has engineers
             if = {
+                # Condition
                 limit = {
                     scope:attacker = {
-                        # TODO: Check engineers
+                        OR = {
+                            commander_pm_usage = {
+                                target = owner
+                                production_method = FAE_pm_engineers
+                                value > 0
+                            }
+                            commander_pm_usage = {
+                                target = owner
+                                production_method = FAE_pm_engineers_conscription
+                                value > 0
+                            }
+                        }
                     }
+                }
+                
+                # Apply sapped fort modifier
+                scope:defender = {
+                    # TODO
                 }
             }
             
             # Attacker does not have engineers
             else = {
                 scope:defender = {
-                    # TODO
+                    add_modifier = {
+                        name       = FAE_md_fort_defense_strong
+                        multiplier = scope:state.b:FAE_building_forts.modifier:unit_defense_add
+                    }
                 }
+                # TODO
             }
         }
     }
 }
 
-### Remove overstacking debuffs on battle end
-#   Root = attacker or defender country
-#   scope:battle = battle
-#   scope:attacker = attacking commander
-#   scope:defender = defending commander
-#   scope:state = location state
+# Root = attacker or defender country
+# scope:battle = battle
+# scope:attacker = attacking commander
+# scope:defender = defending commander
+# scope:state = location state
 on_battle_ended = {
     on_actions = {
         FAE_on_battle_ended
@@ -52,20 +84,45 @@ on_battle_ended = {
 
 FAE_on_battle_ended = {
     effect = {
-        scope:attacker = {
-            if = {
-                limit = {
-                    #has_modifier = ACL_overstacking_penalty_modifier
-                }
-                #remove_modifier = ACL_overstacking_penalty_modifier
-            }
-        }
+        #scope:attacker = {
+        #}
         scope:defender = {
+            # wow this looks gross
             if = {
                 limit = {
-                    #has_modifier = ACL_overstacking_penalty_modifier
+                    has_modifier = FAE_md_fort_defense_strong
                 }
-                #remove_modifier = ACL_overstacking_penalty_modifier
+                remove_modifier = FAE_md_fort_defense_strong
+            }
+            if = {
+                limit = {
+                    has_modifier = FAE_md_fort_defense_weak
+                }
+                remove_modifier = FAE_md_fort_defense_weak
+            }
+            if = {
+                limit = {
+                    has_modifier = FAE_md_fort_kill_rate_strong
+                }
+                remove_modifier = FAE_md_fort_kill_rate_strong
+            }
+            if = {
+                limit = {
+                    has_modifier = FAE_md_fort_kill_rate_weak
+                }
+                remove_modifier = FAE_md_fort_kill_rate_weak
+            }
+            if = {
+                limit = {
+                    has_modifier = FAE_md_fort_provinces_lost_strong
+                }
+                remove_modifier = FAE_md_fort_provinces_lost_strong
+            }
+            if = {
+                limit = {
+                    has_modifier = FAE_md_fort_provinces_lost_weak
+                }
+                remove_modifier = FAE_md_fort_provinces_lost_weak
             }
         }
     }
