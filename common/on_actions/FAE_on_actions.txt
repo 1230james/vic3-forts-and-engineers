@@ -14,11 +14,16 @@ FAE_on_battle_started = {
         if = {
             # Conditional
             limit = {
-                # State must have fort owned by the defenders
-                # TODO: Allow defenders' allies to use forts
+                # State must have fort owned by the defender's country or a war ally of the defender's country
                 scope:state = {
-                    owner        = scope:defender.owner
                     has_building = FAE_building_forts
+                    OR = {
+                        owner = scope:defender.owner
+                        owner = {
+                            is_in_war_together = scope:defender.owner
+                        }
+                    }
+                    
                 }
                 
                 # Guard
@@ -51,9 +56,43 @@ FAE_on_battle_started = {
                     }
                 }
                 
+                # Calculate fort benefits reduction from engineer usage
+                set_local_variable = {
+                    name  = attacker_engineer_multiplier
+                    value = {
+                        add      = FAE_sv_get_attackers_total_engineers_pm_usage
+                        multiply = FAE_WEAK_FORT_MAX_DEBUFF
+                        subtract = 1
+                        multiply = -1
+                    }
+                }
+                
                 # Apply sapped fort modifier
                 scope:defender = {
-                    # TODO
+                    add_modifier = {
+                        name       = FAE_md_fort_defense_weak
+                        multiplier = {
+                            add = 1 # Necessary despite the modifier having a default value [of 1]. DO NOT DELETE!!!
+                            multiply = scope:state.b:FAE_building_forts.modifier:unit_defense_add
+                            multiply = local_var:attacker_engineer_multiplier
+                        }
+                    }
+                    add_modifier = {
+                        name       = FAE_md_fort_kill_rate_weak
+                        multiplier = {
+                            add = 1
+                            multiply = scope:state.b:FAE_building_forts.modifier:unit_kill_rate_add
+                            multiply = local_var:attacker_engineer_multiplier
+                        }
+                    }
+                    add_modifier = {
+                        name       = FAE_md_fort_provinces_lost_weak
+                        multiplier = {
+                            add = -1
+                            multiply = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
+                            multiply = local_var:attacker_engineer_multiplier
+                        }
+                    }
                 }
             }
             

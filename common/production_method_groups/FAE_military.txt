@@ -18,6 +18,7 @@ pmg_specialist_companies_conscription = {
 
     production_methods = {
         pm_no_specialists_conscription
+        FAE_pm_engineers_conscription
         pm_machine_gunners_conscription
         pm_infiltrators_conscription
         pm_flamethrower_company_conscription
