@@ -64,8 +64,15 @@ FAE_on_battle_started = {
                         name       = FAE_md_fort_defense_strong
                         multiplier = scope:state.b:FAE_building_forts.modifier:unit_defense_add
                     }
+                    add_modifier = {
+                        name       = FAE_md_fort_kill_rate_strong
+                        multiplier = scope:state.b:FAE_building_forts.modifier:unit_kill_rate_add
+                    }
+                    add_modifier = {
+                        name       = FAE_md_fort_provinces_lost_strong
+                        multiplier = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
+                    }
                 }
-                # TODO
             }
         }
     }
