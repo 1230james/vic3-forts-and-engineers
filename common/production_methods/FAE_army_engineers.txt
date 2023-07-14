@@ -12,7 +12,7 @@
     building_modifiers = {
         workforce_scaled = {
             building_input_tools_add = 2
-        }
+        } 
         throughput_scaled = {
             unit_offense_add = 5
             unit_defense_add = 10
@@ -20,7 +20,6 @@
 
         unscaled = {
             unit_provinces_captured_mult = 0.05
-            # TODO: +0.1% fort breach battle condition
         }
     }
     country_modifiers = {
@@ -56,7 +55,6 @@ FAE_pm_engineers_conscription = {
 
         unscaled = {
             unit_provinces_captured_mult = 0.05
-            # TODO: +0.1% fort breach battle condition
         }
     }
     country_modifiers = {

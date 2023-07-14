@@ -23,7 +23,6 @@ FAE_on_battle_started = {
                             is_in_war_together = scope:defender.owner
                         }
                     }
-                    
                 }
                 
                 # Guard
