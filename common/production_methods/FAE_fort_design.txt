@@ -19,7 +19,8 @@
         }
         
         workforce_scaled = {
-            unit_defense_add = 2
+            unit_defense_add         = 2
+            unit_provinces_lost_mult = -0.01
         }
     }
     
@@ -51,7 +52,8 @@ FAE_pm_polygonal_forts = {
         }
         
         workforce_scaled = {
-            unit_defense_add = 3
+            unit_defense_add         = 3
+            unit_provinces_lost_mult = -0.02
         }
     }
     
@@ -83,7 +85,8 @@ FAE_pm_bunkers = {
         }
         
         workforce_scaled = {
-            unit_defense_add = 4
+            unit_defense_add         = 4
+            unit_provinces_lost_mult = -0.03
         }
     }
     

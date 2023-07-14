@@ -1,5 +1,5 @@
 ﻿FAE_pm_parapets = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_parapets.dds"
     
     is_default = yes
     
@@ -12,7 +12,8 @@
             building_input_artillery_add = 1
             building_input_tools_add     = 1
             
-            unit_defense_add = 1
+            unit_defense_add   = 1
+            unit_kill_rate_add = 0.01
         }
     }
     
@@ -22,7 +23,7 @@
 }
 
 FAE_pm_casemates = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_casemates.dds"
     
     unlocking_production_methods = {
         FAE_pm_normal
@@ -34,7 +35,8 @@ FAE_pm_casemates = {
             building_input_ammunition_add = 1
             building_input_tools_add      = 1
             
-            unit_defense_add = 2
+            unit_defense_add   = 2
+            unit_kill_rate_add = 0.02
         }
     }
     
@@ -44,7 +46,7 @@ FAE_pm_casemates = {
 }
 
 FAE_pm_turrets = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_turrets.dds"
     
     unlocking_production_methods = {
         FAE_pm_normal
@@ -61,7 +63,8 @@ FAE_pm_turrets = {
             building_input_tools_add      = 2
             building_input_engines_add    = 1
             
-            unit_defense_add = 3
+            unit_defense_add   = 3
+            unit_kill_rate_add = 0.03
         }
         
         level_scaled = {

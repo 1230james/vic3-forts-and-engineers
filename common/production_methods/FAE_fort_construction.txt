@@ -1,5 +1,5 @@
 ﻿FAE_pm_wood_palisades = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_palisades.dds"
     
     unlocking_production_methods = {
         FAE_pm_normal
@@ -22,7 +22,7 @@
 }
 
 FAE_pm_stone_iron = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_stone_walls.dds"
     
     is_default = yes
     
@@ -51,7 +51,7 @@ FAE_pm_stone_iron = {
 }
 
 FAE_pm_steel_concrete = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_concrete.dds"
     
     unlocking_production_methods = {
         FAE_pm_normal
@@ -82,7 +82,7 @@ FAE_pm_steel_concrete = {
 }
 
 FAE_pm_fort_construction_mothballed = {
-    texture = "gfx/interface/icons/production_method_icons/armored_division.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_fort_construction_mothballed.dds"
     
     unlocking_production_methods = {
         FAE_pm_mothballed
