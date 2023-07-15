@@ -19,6 +19,14 @@ FAE_md_fort_recommission = {
 }
 
 # Fort combat modifiers
+FAE_md_fort_in_battle = {
+    icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_defense_negative.dds
+    building_soldiers_mortality_mult   = 80 # These numbers seemed to work decently in testing...
+    building_officers_mortality_mult   = 80 # 8000% isn't *THAT* bad; honest!
+    building_laborers_mortality_mult   = 1
+    building_machinists_mortality_mult = 1
+}
+
 FAE_md_fort_defense_strong = {
     icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_defense_positive.dds
     unit_defense_add = 1

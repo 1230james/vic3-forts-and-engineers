@@ -15,12 +15,18 @@ FAE_on_battle_started = {
             # Conditional
             limit = {
                 # State must have fort owned by the defender's country or a war ally of the defender's country
+                # and it can't be mothballed
                 scope:state = {
                     has_building = FAE_building_forts
                     OR = {
                         owner = scope:defender.owner
                         owner = {
                             is_in_war_together = scope:defender.owner
+                        }
+                    }
+                    this.b:FAE_building_forts = {
+                        NOT = {
+                            has_active_production_method = FAE_pm_mothballed
                         }
                     }
                 }
@@ -31,6 +37,20 @@ FAE_on_battle_started = {
                     NOR = {
                         has_modifier = FAE_md_fort_defense_strong
                         has_modifier = FAE_md_fort_defense_weak
+                    }
+                }
+            }
+            
+            # Calculate & apply fort battle modifier
+            scope:state.b:FAE_building_forts = {
+                add_modifier = {
+                    name = FAE_md_fort_in_battle
+                    multiplier = {
+                        add = 1    # The quotation marks are necessary for correct parsing of the parentheses, apparently
+                        multiply = "scope:battle.front.average_offense(scope:attacker.owner)"
+                        divide   = "scope:battle.front.average_defense(scope:defender.owner)"
+                        min      = 0.01
+                        max      = 3
                     }
                 }
             }
@@ -131,8 +151,22 @@ on_battle_ended = {
 
 FAE_on_battle_ended = {
     effect = {
-        #scope:attacker = {
-        #}
+        scope:state = {
+            if = {
+                limit = {
+                    has_building = FAE_building_forts
+                }
+                this.b:FAE_building_forts = {
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_in_battle
+                        }
+                        remove_modifier = FAE_md_fort_in_battle
+                    }
+                }
+            }
+        }
+        
         scope:defender = {
             # wow this looks gross
             if = {
