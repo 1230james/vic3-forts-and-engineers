@@ -30,6 +30,10 @@ FAE_pm_stone_iron = {
         FAE_pm_normal
     }
     
+    unlocking_technologies = {
+        shaft_mining
+    }
+    
     building_modifiers = {
         workforce_scaled = {
             building_input_iron_add  = 50

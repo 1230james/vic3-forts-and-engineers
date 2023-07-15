@@ -29,6 +29,10 @@ FAE_pm_casemates = {
         FAE_pm_normal
     }
     
+    unlocking_technologies = {
+        breech_loading_artillery
+    }
+    
     building_modifiers = {
         workforce_scaled = {
             building_input_artillery_add  = 1
@@ -53,7 +57,7 @@ FAE_pm_turrets = {
     }
     
     unlocking_technologies = {
-        reinforced_concrete
+        defense_in_depth
     }
     
     building_modifiers = {

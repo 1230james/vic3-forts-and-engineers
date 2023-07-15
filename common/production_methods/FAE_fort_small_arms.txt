@@ -25,6 +25,10 @@ FAE_pm_gatling_guns = {
         FAE_pm_normal
     }
     
+    unlocking_technologies = {
+        handcranked_machine_gun
+    }
+    
     building_modifiers = {
         workforce_scaled = {
             building_input_artillery_add  = 0.5
@@ -48,7 +52,7 @@ FAE_pm_auto_machine_guns = {
     }
     
     unlocking_technologies = {
-        reinforced_concrete
+        automatic_machine_guns
     }
     
     building_modifiers = {

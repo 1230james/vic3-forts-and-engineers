@@ -136,8 +136,6 @@ FAE_on_battle_started = {
     }
 }
 
-# TODO: fort battle mortality
-
 # Root = attacker or defender country
 # scope:battle = battle
 # scope:attacker = attacking commander
