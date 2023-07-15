@@ -9,7 +9,7 @@
     
     building_modifiers = {
         workforce_scaled = {
-            building_input_small_arms_add = 0.5
+            building_input_small_arms_add = 0.25
         }
     }
     
@@ -31,7 +31,7 @@ FAE_pm_gatling_guns = {
     
     building_modifiers = {
         workforce_scaled = {
-            building_input_artillery_add  = 0.5
+            building_input_small_arms_add = 0.5
             building_input_ammunition_add = 0.5
             
             unit_defense_add   = 1
@@ -57,7 +57,7 @@ FAE_pm_auto_machine_guns = {
     
     building_modifiers = {
         workforce_scaled = {
-            building_input_artillery_add  = 1
+            building_input_small_arms_add = 1
             building_input_ammunition_add = 1
             
             unit_defense_add   = 2
