@@ -84,7 +84,8 @@ FAE_on_battle_started = {
                     add_modifier = {
                         name       = FAE_md_fort_defense_weak
                         multiplier = {
-                            add = 1 # Necessary despite the modifier having a default value [of 1]. DO NOT DELETE!!!
+                            add      = 1 # Default value for script math blocks is 0. DO NOT DELETE!!!
+                            add      = scope:state.b:FAE_building_forts.modifier:unit_defense_mult
                             multiply = scope:state.b:FAE_building_forts.modifier:unit_defense_add
                             multiply = local_var:attacker_engineer_multiplier
                         }
@@ -92,7 +93,7 @@ FAE_on_battle_started = {
                     add_modifier = {
                         name       = FAE_md_fort_kill_rate_weak
                         multiplier = {
-                            add = 1
+                            add      = 1
                             multiply = scope:state.b:FAE_building_forts.modifier:unit_kill_rate_add
                             multiply = local_var:attacker_engineer_multiplier
                         }
@@ -100,7 +101,7 @@ FAE_on_battle_started = {
                     add_modifier = {
                         name       = FAE_md_fort_provinces_lost_weak
                         multiplier = {
-                            add = 1
+                            add      = 1
                             multiply = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
                             multiply = local_var:attacker_engineer_multiplier
                         }
@@ -113,7 +114,11 @@ FAE_on_battle_started = {
                 scope:defender = {
                     add_modifier = {
                         name       = FAE_md_fort_defense_strong
-                        multiplier = scope:state.b:FAE_building_forts.modifier:unit_defense_add
+                        multiplier = {
+                            add      = 1
+                            add      = scope:state.b:FAE_building_forts.modifier:unit_defense_mult
+                            multiply = scope:state.b:FAE_building_forts.modifier:unit_defense_add
+                        }
                     }
                     add_modifier = {
                         name       = FAE_md_fort_kill_rate_strong

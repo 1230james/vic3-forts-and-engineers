@@ -5,10 +5,6 @@
         field_works
     }
     
-    disallowing_laws = {
-        law_peasant_levies
-    }	
-    
     building_modifiers = {
         workforce_scaled = {
             building_input_tools_add = 2
