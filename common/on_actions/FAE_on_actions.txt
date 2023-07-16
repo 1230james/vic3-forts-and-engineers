@@ -16,7 +16,7 @@ FAE_on_battle_started = {
             limit = {
                 # State must have fort owned by the defender's country or a war ally of the defender's country
                 # and it can't be mothballed
-                scope:state = {
+                scope:state ?= {
                     has_building = FAE_building_forts
                     OR = {
                         owner = scope:defender.owner
@@ -33,7 +33,7 @@ FAE_on_battle_started = {
                 
                 # Guard
                 # This on_action is fired twice (once for each country) for some reason
-                scope:defender = {
+                scope:defender ?= {
                     NOR = {
                         has_modifier = FAE_md_fort_defense_strong
                         has_modifier = FAE_md_fort_defense_weak
@@ -58,7 +58,7 @@ FAE_on_battle_started = {
             # Attacker has engineers
             if = {
                 # Condition
-                limit = {
+                limit = { # TODO: replace with FAE_sv_get_attackers_total_engineers_pm_usage
                     scope:attacker = {
                         OR = {
                             commander_pm_usage = {
@@ -132,6 +132,14 @@ FAE_on_battle_started = {
                     }
                 }
             }
+            
+            # Save fort for later use
+            scope:defender = {
+                set_variable = {
+                    name  = FAE_fort_used
+                    value = scope:state.b:FAE_building_forts
+                }
+            }
         }
     }
 }
@@ -149,7 +157,7 @@ on_battle_ended = {
 
 FAE_on_battle_ended = {
     effect = {
-        scope:state = {
+        scope:state ?= {
             if = {
                 limit = {
                     has_building = FAE_building_forts
@@ -165,7 +173,7 @@ FAE_on_battle_ended = {
             }
         }
         
-        scope:defender = {
+        scope:defender ?= {
             # wow this looks gross
             if = {
                 limit = {
@@ -202,6 +210,95 @@ FAE_on_battle_ended = {
                     has_modifier = FAE_md_fort_provinces_lost_weak
                 }
                 remove_modifier = FAE_md_fort_provinces_lost_weak
+            }
+            
+            if = {
+                limit = {
+                    has_variable = FAE_fort_used
+                }
+                var:FAE_fort_used = {
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_in_battle
+                        }
+                        remove_modifier = FAE_md_fort_in_battle
+                    }
+                }
+                remove_variable = FAE_fort_used
+            }
+        }
+    }
+}
+
+# Root = Diplomatic Play
+# scope:actor = Initiator country
+# scope:target = Target country
+on_war_end = {
+    on_actions = {
+        FAE_oa_on_war_end
+    }
+}
+
+# on_battle_ended doesn't fire for battles ended prematurely (e.g. from peace being signed mid-battle), so we're using
+# this to clean up lingering battle modifiers when wars end
+FAE_oa_on_war_end = {
+    effect = {
+        every_scope_play_involved = {
+            every_scope_general = {
+                if = {
+                    limit = {
+                        is_in_battle = no
+                        has_variable = FAE_fort_used
+                    }
+                    
+                    var:FAE_fort_used = {
+                        if = {
+                            limit = {
+                                has_modifier = FAE_md_fort_in_battle
+                            }
+                            remove_modifier = FAE_md_fort_in_battle
+                        }
+                    }
+                    remove_variable = FAE_fort_used
+                    
+                    # DRY fans in shambles (me)
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_defense_strong
+                        }
+                        remove_modifier = FAE_md_fort_defense_strong
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_defense_weak
+                        }
+                        remove_modifier = FAE_md_fort_defense_weak
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_kill_rate_strong
+                        }
+                        remove_modifier = FAE_md_fort_kill_rate_strong
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_kill_rate_weak
+                        }
+                        remove_modifier = FAE_md_fort_kill_rate_weak
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_provinces_lost_strong
+                        }
+                        remove_modifier = FAE_md_fort_provinces_lost_strong
+                    }
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_provinces_lost_weak
+                        }
+                        remove_modifier = FAE_md_fort_provinces_lost_weak
+                    }
+                }
             }
         }
     }
