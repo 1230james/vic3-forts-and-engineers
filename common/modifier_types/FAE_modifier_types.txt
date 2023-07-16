@@ -1,7 +1,8 @@
-﻿state_FAE_building_forts_max_level_add = {
-	good = yes
-	percent = no
-	num_decimals = 0
+﻿# Building modifiers
+state_FAE_building_forts_max_level_add = {
+    good = yes
+    percent = no
+    num_decimals = 0
 }
 
 building_input_small_arms_mult = {
@@ -17,4 +18,11 @@ building_input_artillery_mult = {
 building_input_ammunition_mult = {
     good    = no
     percent = yes
+}
+
+# Battle condition modifiers
+character_FAE_battle_condition_attacker_fort_breached_mult = {
+    good = yes
+    percent = yes
+    num_decimals = 0
 }
