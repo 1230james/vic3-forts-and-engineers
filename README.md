@@ -8,10 +8,10 @@ For Victoria 3
 
 With FAE, all countries can now build Fortifications, a new building type meant to represent a network of forts and defensive structures in the state. It comes with multiple new production methods, simulating the evolution from old star-shaped bastion forts with cannons mounted on parapets to concrete bunkers and artillery turrets. It also adds a new Combat Engineers specialist company to land armies to counter the imposing challenges of sieging forts.
 
-For full information, please visit the [Steam Workshop (TBA)]() page.
+For full information, please visit the [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3005432154) page.
 
 ## Installation
 
-1. Install via [Steam Workshop (TBA)](), OR
+1. Install via [Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=3005432154), OR
 
 2. Clone this repository and install into the Vic3 mods folder manually.
