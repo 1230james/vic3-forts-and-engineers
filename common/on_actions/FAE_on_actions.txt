@@ -55,31 +55,24 @@ FAE_on_battle_started = {
                 }
             }
             
+            # Calculate attacker engineers usage for math
+            set_local_variable = {
+                name  = attacker_engineer_pm_usage
+                value = FAE_sv_get_attackers_total_engineers_pm_usage
+            }
+            
             # Attacker has engineers
             if = {
                 # Condition
-                limit = { # TODO: replace with FAE_sv_get_attackers_total_engineers_pm_usage
-                    scope:attacker = {
-                        OR = {
-                            commander_pm_usage = {
-                                target = owner
-                                production_method = FAE_pm_engineers
-                                value > 0
-                            }
-                            commander_pm_usage = {
-                                target = owner
-                                production_method = FAE_pm_engineers_conscription
-                                value > 0
-                            }
-                        }
-                    }
+                limit = {
+                    local_var:attacker_engineer_pm_usage > 0
                 }
                 
                 # Calculate fort benefits reduction from engineer usage
                 set_local_variable = {
                     name  = attacker_engineer_multiplier
                     value = {
-                        add      = FAE_sv_get_attackers_total_engineers_pm_usage
+                        add      = local_var:attacker_engineer_pm_usage
                         multiply = FAE_WEAK_FORT_MAX_DEBUFF
                         subtract = 1
                         multiply = -1
