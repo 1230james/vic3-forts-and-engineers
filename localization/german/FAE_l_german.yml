@@ -1,22 +1,22 @@
 ﻿l_german:
     # Battle Conditions
-    FAE_battle_condition_attacker_fort_breached: "Fort Breached"
+    FAE_battle_condition_attacker_fort_breached: "Festung Durchbrochen"
     FAE_battle_condition_defender_fort_breached: "$FAE_battle_condition_attacker_fort_breached$"
     
-    FAE_battle_condition_attacker_fort_breached_desc: "This commander has successfully breached some of the enemy's fortifications."
-    FAE_battle_condition_defender_fort_breached_desc: "The enemy has successfully breached some of this commander's fortifications."
+    FAE_battle_condition_attacker_fort_breached_desc: "Dieser Kommandeur hat erfolgreich einige Befestigungen des Feindes durchbrochen."
+    FAE_battle_condition_defender_fort_breached_desc: "Der Feind hat einige der Befestigungen dieses Kommandanten durchbrochen."
     
     # Buildings
     FAE_building_forts: "Festungsanlagen"
     
     # Character Traits
-    FAE_trait_combat_engineer_1: "Combat Engineer"
-    FAE_trait_combat_engineer_2: "Experienced Combat Engineer"
-    FAE_trait_combat_engineer_3: "Expert Combat Engineer"
+    FAE_trait_combat_engineer_1: "Pionier"
+    FAE_trait_combat_engineer_2: "Erfahrener Pionier"
+    FAE_trait_combat_engineer_3: "Elite Pionier"
     
-    FAE_trait_combat_engineer_1_desc: "This commander is knowledgeable in the effective use of combat engineers."
-    FAE_trait_combat_engineer_2_desc: "This commander has an expert grasp of the use of combat engineers in warfare."
-    FAE_trait_combat_engineer_3_desc: "This commander has truly mastered the art of modern warfare with regards to combat engineers."
+    FAE_trait_combat_engineer_1_desc: "Dieser Kommandeur ist vertraut mit dem Einsatz von Pionieren"
+    FAE_trait_combat_engineer_2_desc: "Dieser Kommandeur ist ein Experte für den Einsatz von Pionieren."
+    FAE_trait_combat_engineer_3_desc: "Dieser Kommandeur hat den Einsatz von Pionieren Gemeistert."
     
     # Modifiers I (modifier_types)
     modifier_state_FAE_building_forts_max_level_add:      "$FAE_building_forts$-Maximalstufe"
@@ -34,14 +34,14 @@
     modifier_character_FAE_battle_condition_attacker_fort_breached_mult_desc: "$modifier_character_battle_condition_desc_prefix$[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_desc_suffix$"
     
     # Modifiers II (modifiers)
-    FAE_md_fort_reconstruction: "Fort Construction"
-    FAE_md_fort_rearmament:     "Fort Armament"
-    FAE_md_fort_recommission:   "Recently Commissioned"
+    FAE_md_fort_reconstruction: "Fort Bau"
+    FAE_md_fort_rearmament:     "Fort Bewaffnung"
+    FAE_md_fort_recommission:   "Kuerzlich in Betrieb genommen"
     
-    FAE_md_fort_in_battle: "Engaged in Combat"
+    FAE_md_fort_in_battle: "Im Gefecht"
     
-    FAE_md_fort_defense_strong: "Strong Fortifications"
-    FAE_md_fort_defense_weak:   "Weakened Fortifications"
+    FAE_md_fort_defense_strong: "Starke Befaestigungen"
+    FAE_md_fort_defense_weak:   "Geschwaechte Befaestigungen"
     
     FAE_md_fort_kill_rate_strong:      "$FAE_md_fort_defense_strong$"
     FAE_md_fort_kill_rate_weak:        "$FAE_md_fort_defense_weak$"
@@ -49,36 +49,36 @@
     FAE_md_fort_provinces_lost_weak:   "$FAE_md_fort_defense_weak$"
     
     # Production Method Groups
-    FAE_pmg_fort_design:         "Fort Design"
-    FAE_pmg_fort_construction:   "Construction Material"
-    FAE_pmg_fort_heavy_armament: "Heavy Armament"
-    FAE_pmg_fort_small_armament: "Light Armament"
-    FAE_pmg_fort_maintenance:    "Operational Status"
+    FAE_pmg_fort_design:         "Festungs Design"
+    FAE_pmg_fort_construction:   "Baumaterial"
+    FAE_pmg_fort_heavy_armament: "Schwere Bewaffnung"
+    FAE_pmg_fort_small_armament: "Leichte Bewaffnung"
+    FAE_pmg_fort_maintenance:    "Operativer Status"
     
     # Production Methods
-    FAE_pm_bastion_forts:   "Bastion Forts"
-    FAE_pm_polygonal_forts: "Polygonal Forts"
-    FAE_pm_bunkers:         "Bunkers & Pillboxes"
+    FAE_pm_bastion_forts:   "Einfaches Fort"
+    FAE_pm_polygonal_forts: "Stern Festungen"
+    FAE_pm_bunkers:         "Bunker & Pillboxen"
     
-    FAE_pm_wood_palisades: "Wooden Palisades"
-    FAE_pm_stone_iron:     "Stone & Iron"
-    FAE_pm_steel_concrete: "Steel & Concrete"
+    FAE_pm_wood_palisades: "Holz Palisaden"
+    FAE_pm_stone_iron:     "Stein & Eisen"
+    FAE_pm_steel_concrete: "Stahl & Beton"
     
-    FAE_pm_parapets:  "Parapet Cannons"
-    FAE_pm_casemates: "Artillery Casemates"
-    FAE_pm_turrets:   "Gun Turrets"
+    FAE_pm_parapets:  "Schießscharten"
+    FAE_pm_casemates: "Kasemattgeschuetze"
+    FAE_pm_turrets:   "Geschuetzturme"
     
     FAE_pm_small_arms:        "$small_arms$"
     FAE_pm_gatling_guns:      "$handcranked_machine_gun$"
     FAE_pm_auto_machine_guns: "$automatic_machine_guns$"
     
-    FAE_pm_normal:     "Normal Operations"
-    FAE_pm_mothballed: "Mothballed"
+    FAE_pm_normal:     "In Betrieb"
+    FAE_pm_mothballed: "Stillgelegt"
     
     FAE_pm_fort_design_mothballed:       "$FAE_pm_mothballed$"
     FAE_pm_fort_construction_mothballed: "$FAE_pm_mothballed$"
     FAE_pm_fort_heavy_arms_mothballed:   "$FAE_pm_mothballed$"
     FAE_pm_small_arms_mothballed:        "$FAE_pm_mothballed$"
     
-    FAE_pm_engineers:              "Combat Engineers"
+    FAE_pm_engineers:              "Pioniere"
     FAE_pm_engineers_conscription: "$FAE_pm_engineers$"
