@@ -36,8 +36,10 @@
         
         # Bonus for researching Trench Works
         if = {
-            owner ?= {
-                has_technology_researched = trench_works
+            limit = {
+                owner ?= {
+                    has_technology_researched = trench_works
+                }
             }
             multiply = 2
         }
@@ -116,8 +118,10 @@ FAE_trait_combat_engineer_2 = {
         
         # Bonus for researching Trench Works
         if = {
-            owner ?= {
-                has_technology_researched = trench_works
+            limit = {
+                owner ?= {
+                    has_technology_researched = trench_works
+                }
             }
             multiply = 2
         }
@@ -200,8 +204,10 @@ FAE_trait_combat_engineer_3 = {
         
         # Bonus for researching Trench Works
         if = {
-            owner ?= {
-                has_technology_researched = trench_works
+            limit = {
+                owner ?= {
+                    has_technology_researched = trench_works
+                }
             }
             multiply = 2
         }
@@ -209,8 +215,10 @@ FAE_trait_combat_engineer_3 = {
         # Bonus for researching Stormtroopers (Infiltrators)
         # Tier 3 exclusive
         if = {
-            owner ?= {
-                has_technology_researched = stormtroopers
+            limit = {
+                owner ?= {
+                    has_technology_researched = stormtroopers
+                }
             }
             multiply = 2
         }
