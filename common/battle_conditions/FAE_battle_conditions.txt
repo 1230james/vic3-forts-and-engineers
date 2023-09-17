@@ -29,6 +29,11 @@ FAE_battle_condition_attacker_fort_breached = {
                     is_in_war_together = scope:character.opposing_commander.owner
                 }
             }
+            this.b:FAE_building_forts = {
+                NOT = {
+                    has_active_production_method = FAE_pm_mothballed
+                }
+            }
         }
         
         # A fort isn't already being breached
@@ -161,6 +166,33 @@ FAE_battle_condition_attacker_fort_breached = {
                 add = modifier:character_FAE_battle_condition_attacker_fort_breached_mult
             }
             min = 0
+        }
+        
+        # Adjust weight based on avg atk/def gap
+        # -75% odds when atk/def are even, no modifier at >=50% advantage for either side
+        # mfw no absolute value function
+        if = {
+            limit = {
+                "battle.front.average_defense(scope:character.opposing_commander.owner)" >= "battle.front.average_offense(scope:character.owner)"
+            }
+            multiply = { # The quotation marks are necessary for correct parsing of the parentheses
+                value    = "battle.front.average_defense(scope:character.opposing_commander.owner)"
+                divide   = "battle.front.average_offense(scope:character.owner)"
+                multiply = 2
+                subtract = 2
+                min      = 0.25
+                max      = 1
+            }
+        }
+        else = {
+            multiply = { # The quotation marks are necessary for correct parsing of the parentheses
+                value    = "battle.front.average_defense(scope:character.opposing_commander.owner)"
+                divide   = "battle.front.average_offense(scope:character.owner)"
+                multiply = -2
+                add      = 2
+                min      = 0.25
+                max      = 1
+            }
         }
     }
 }
