@@ -11,6 +11,25 @@ on_battle_started = {
 
 FAE_on_battle_started = {
     effect = {
+        
+        # TODO: DEBUG - Remove
+        scope:attacker = {
+            owner = {
+                set_variable = {
+                    name  = battle
+                    value = scope:battle
+                }
+            }
+        }
+        scope:defender = {
+            owner = {
+                set_variable = {
+                    name  = battle
+                    value = scope:battle
+                }
+            }
+        }
+        
         if = {
             # Conditional
             limit = {
@@ -57,22 +76,25 @@ FAE_on_battle_started = {
             
             # Calculate attacker engineers usage for math
             set_local_variable = {
-                name  = attacker_engineer_pm_usage
-                value = FAE_sv_get_attackers_total_engineers_pm_usage
+                name  = total_siege
+                value = 0
+            }
+            FAE_se_calculate_siege = {
+                SCOPE = attacker
             }
             
             # Attacker has engineers
             if = {
                 # Condition
                 limit = {
-                    local_var:attacker_engineer_pm_usage > 0
+                    local_var:total_siege > 0
                 }
                 
                 # Calculate fort benefits reduction from engineer usage
                 set_local_variable = {
                     name  = attacker_engineer_multiplier
                     value = {
-                        add      = local_var:attacker_engineer_pm_usage
+                        add      = local_var:total_siege
                         multiply = FAE_WEAK_FORT_MAX_DEBUFF
                         subtract = 1
                         multiply = -1
