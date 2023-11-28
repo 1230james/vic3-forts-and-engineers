@@ -1,5 +1,5 @@
-﻿# Misc.
-FAE_WEAK_FORT_MAX_DEBUFF = 0.75
+﻿# Fort bonuses will be at least this fraction of the full bonus even if the enemy's siege can take the fort entrenchment down to 0
+FAE_WEAK_FORT_MIN_BONUS = 0.25
 
 # Siege values - keep values set in mob. options & unit types up to date
 FAE_siege_combat_engies = 1

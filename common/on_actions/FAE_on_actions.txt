@@ -74,13 +74,38 @@ FAE_on_battle_started = {
                 }
             }
             
-            # Calculate attacker engineers usage for math
+            # Calculate total siege points (based on attacking units)
             set_local_variable = {
                 name  = total_siege
                 value = 0
             }
-            FAE_se_calculate_siege = {
-                SCOPE = attacker
+            scope:battle = {
+                FAE_se_calculate_siege = {
+                    SCOPE = attacker
+                }
+            }
+            
+            # Calculate total entrenchment points (based on fort level & defending units)
+            set_local_variable = {
+                name  = total_entrenchment
+                value = {
+                    add      = scope:state.b:FAE_building_forts.modifier:unit_FAE_entrenchment_add
+                    multiply = {
+                        scope:battle = {
+                            every_combat_unit = {
+                                limit = {
+                                    OR = {
+                                        owner = scope:defender.owner
+                                        owner = {
+                                            is_in_war_together = scope:defender.owner
+                                        }
+                                    }
+                                }
+                                add = 1
+                            }
+                        }
+                    }
+                }
             }
             
             # Attacker has engineers
@@ -94,10 +119,13 @@ FAE_on_battle_started = {
                 set_local_variable = {
                     name  = attacker_engineer_multiplier
                     value = {
-                        add      = local_var:total_siege
-                        multiply = FAE_WEAK_FORT_MAX_DEBUFF
-                        subtract = 1
-                        multiply = -1
+                        # Calculate siege ratio
+                        add      = local_var:total_entrenchment
+                        subtract = local_var:total_siege
+                        divide   = local_var:total_entrenchment
+                        
+                        # Bounds
+                        min = FAE_WEAK_FORT_MIN_BONUS
                     }
                 }
                 
@@ -120,11 +148,27 @@ FAE_on_battle_started = {
                             multiply = local_var:attacker_engineer_multiplier
                         }
                     }
+                    # add_modifier = {
+                        # name       = FAE_md_fort_provinces_lost_weak
+                        # multiplier = {
+                            # add      = 1
+                            # multiply = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
+                            # multiply = local_var:attacker_engineer_multiplier
+                        # }
+                    # }
+                }
+                scope:attacker ?= {
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_occupation_speed
+                        }
+                        remove_modifier = FAE_md_fort_occupation_speed
+                    }
                     add_modifier = {
-                        name       = FAE_md_fort_provinces_lost_weak
+                        name       = FAE_md_fort_occupation_speed
                         multiplier = {
                             add      = 1
-                            multiply = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
+                            multiply = scope:state.b:FAE_building_forts.modifier:unit_occupation_mult
                             multiply = local_var:attacker_engineer_multiplier
                         }
                     }
@@ -146,10 +190,10 @@ FAE_on_battle_started = {
                         name       = FAE_md_fort_kill_rate_strong
                         multiplier = scope:state.b:FAE_building_forts.modifier:unit_kill_rate_add
                     }
-                    add_modifier = {
-                        name       = FAE_md_fort_provinces_lost_strong
-                        multiplier = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
-                    }
+                    # add_modifier = {
+                        # name       = FAE_md_fort_provinces_lost_strong
+                        # multiplier = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
+                    # }
                 }
             }
             
@@ -193,6 +237,11 @@ FAE_on_battle_ended = {
             }
         }
         
+        trigger_event = {
+            id   = FAE_ev.2 # removes occupation speed malus from attacker
+            days = 1 # 1 day delay to ensure occupation malus is applied
+        }
+        
         scope:defender ?= {
             # wow this looks gross
             if = {
@@ -219,18 +268,18 @@ FAE_on_battle_ended = {
                 }
                 remove_modifier = FAE_md_fort_kill_rate_weak
             }
-            if = {
-                limit = {
-                    has_modifier = FAE_md_fort_provinces_lost_strong
-                }
-                remove_modifier = FAE_md_fort_provinces_lost_strong
-            }
-            if = {
-                limit = {
-                    has_modifier = FAE_md_fort_provinces_lost_weak
-                }
-                remove_modifier = FAE_md_fort_provinces_lost_weak
-            }
+            # if = {
+                # limit = {
+                    # has_modifier = FAE_md_fort_provinces_lost_strong
+                # }
+                # remove_modifier = FAE_md_fort_provinces_lost_strong
+            # }
+            # if = {
+                # limit = {
+                    # has_modifier = FAE_md_fort_provinces_lost_weak
+                # }
+                # remove_modifier = FAE_md_fort_provinces_lost_weak
+            # }
             
             if = {
                 limit = {

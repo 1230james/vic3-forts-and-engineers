@@ -35,3 +35,11 @@ unit_FAE_siege_add = { # Mainly for aesthetic purposes
     
     ai_value = 1000
 }
+
+unit_FAE_entrenchment_add = { # Actually sorta functional
+    good = yes
+    percent = no
+    num_decimals = 0
+    
+    ai_value = 1000
+}

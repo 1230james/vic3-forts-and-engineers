@@ -19,8 +19,10 @@
         }
         
         workforce_scaled = {
-            unit_defense_add         = 2
-            unit_provinces_lost_mult = -0.01
+            unit_defense_add     = 2
+            unit_occupation_mult = -0.01
+            
+            unit_FAE_entrenchment_add = 2
         }
     }
     
@@ -52,8 +54,10 @@ FAE_pm_polygonal_forts = {
         }
         
         workforce_scaled = {
-            unit_defense_add         = 3
-            unit_provinces_lost_mult = -0.02
+            unit_defense_add     = 3
+            unit_occupation_mult = -0.02
+            
+            unit_FAE_entrenchment_add = 4
         }
     }
     
@@ -82,11 +86,13 @@ FAE_pm_bunkers = {
             building_employment_laborers_add  = 350
             
             building_training_rate_add = 10
+            
+            unit_FAE_entrenchment_add = 6
         }
         
         workforce_scaled = {
-            unit_defense_add         = 4
-            unit_provinces_lost_mult = -0.03
+            unit_defense_add     = 4
+            unit_occupation_mult = -0.03
         }
     }
     

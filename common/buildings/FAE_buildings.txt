@@ -1,11 +1,11 @@
 ﻿FAE_building_forts = {
-    building_group = bg_army
+    building_group = FAE_bg_forts
     texture        = "gfx/interface/icons/building_icons/FAE_building_forts.dds"
     
     has_max_level = yes
     
     unlocking_technologies = {
-        napoleonic_warfare
+        standing_army
     }
     
     production_method_groups = {
