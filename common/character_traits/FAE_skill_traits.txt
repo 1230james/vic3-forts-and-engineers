@@ -64,20 +64,12 @@
             multiply = 8
         }
         
-        # Bonus for having Combat Engineer PM
+        # Bonus for having Combat Engineer mob. option at war
         if = {
             limit = {
-                OR = {
-                    commander_pm_usage = {
-                        target = owner
-                        production_method = FAE_pm_engineers
-                        value > 0.5
-                    }
-                    commander_pm_usage = {
-                        target = owner
-                        production_method = FAE_pm_engineers_conscription
-                        value > 0.5
-                    }
+                commander_military_formation ?= {
+                    is_mobilized = yes
+                    has_mobilization_option = mobilization_option:FAE_mo_combat_engineers
                 }
             }
             multiply = 5
@@ -146,20 +138,12 @@ FAE_trait_combat_engineer_2 = {
             multiply = 8
         }
         
-        # Bonus for having Combat Engineer PM
+        # Bonus for having Combat Engineer mob. option at war
         if = {
             limit = {
-                OR = {
-                    commander_pm_usage = {
-                        target = owner
-                        production_method = FAE_pm_engineers
-                        value > 0.5
-                    }
-                    commander_pm_usage = {
-                        target = owner
-                        production_method = FAE_pm_engineers_conscription
-                        value > 0.5
-                    }
+                commander_military_formation ?= {
+                    is_mobilized = yes
+                    has_mobilization_option = mobilization_option:FAE_mo_combat_engineers
                 }
             }
             multiply = 5
@@ -243,20 +227,12 @@ FAE_trait_combat_engineer_3 = {
             multiply = 8
         }
         
-        # Bonus for having Combat Engineer PM
+        # Bonus for having Combat Engineer mob. option at war
         if = {
             limit = {
-                OR = {
-                    commander_pm_usage = {
-                        target = owner
-                        production_method = FAE_pm_engineers
-                        value > 0.5
-                    }
-                    commander_pm_usage = {
-                        target = owner
-                        production_method = FAE_pm_engineers_conscription
-                        value > 0.5
-                    }
+                commander_military_formation ?= {
+                    is_mobilized = yes
+                    has_mobilization_option = mobilization_option:FAE_mo_combat_engineers
                 }
             }
             multiply = 5

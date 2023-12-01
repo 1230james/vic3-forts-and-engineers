@@ -1,4 +1,7 @@
-﻿# Used for on_action
+﻿# Old script values no longer used (and should not be used); keeping for reference
+# and by reference I mean I want to be reminded that the beforetimes were a dark age
+
+# Used for on_action
 FAE_sv_get_attackers_total_engineers_pm_usage = {
     value = 0
     add   = FAE_sv_get_attackers_engineers_pm_usage

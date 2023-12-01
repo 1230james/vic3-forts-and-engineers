@@ -47,6 +47,11 @@ FAE_md_fort_kill_rate_weak = {
     unit_kill_rate_add = 1
 }
 
+FAE_md_fort_occupation_speed = {
+    icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_provinces_negative.dds
+    unit_occupation_mult = 1
+}
+
 FAE_md_fort_provinces_lost_strong = {
     icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_provinces_positive.dds
     unit_provinces_lost_mult = 1
