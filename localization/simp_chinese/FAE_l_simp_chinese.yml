@@ -33,6 +33,9 @@
     modifier_character_FAE_battle_condition_attacker_fort_breached_mult:      "[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_suffix$"
     modifier_character_FAE_battle_condition_attacker_fort_breached_mult_desc: "$modifier_character_battle_condition_desc_prefix$[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_desc_suffix$"
     
+    modifier_unit_FAE_siege_add:        "[concept_FAE_siege]"
+    modifier_unit_FAE_entrenchment_add: "[concept_FAE_entrenchment]"
+
     # Modifiers II (modifiers)
     FAE_md_fort_reconstruction: "Fort Construction"
     FAE_md_fort_rearmament:     "Fort Armament"
@@ -40,8 +43,9 @@
     
     FAE_md_fort_in_battle: "Engaged in Combat"
     
-    FAE_md_fort_defense_strong: "Strong Fortifications"
-    FAE_md_fort_defense_weak:   "Weakened Fortifications"
+    FAE_md_fort_defense_strong:   "Strong Fortifications"
+    FAE_md_fort_defense_weak:     "Weakened Fortifications"
+    FAE_md_fort_occupation_speed: "Hampered by Enemy Fortifications"
     
     FAE_md_fort_kill_rate_strong:      "$FAE_md_fort_defense_strong$"
     FAE_md_fort_kill_rate_weak:        "$FAE_md_fort_defense_weak$"
@@ -80,5 +84,32 @@
     FAE_pm_fort_heavy_arms_mothballed:   "$FAE_pm_mothballed$"
     FAE_pm_small_arms_mothballed:        "$FAE_pm_mothballed$"
     
-    FAE_pm_engineers:              "Combat Engineers"
-    FAE_pm_engineers_conscription: "$FAE_pm_engineers$"
+    # Mobilization Options
+    FAE_mo_combat_engineers:      "Combat Engineers"
+    FAE_mo_combat_engineers_desc: "Specially-trained engineers on the battlefield will help us adapt the terrain to our needs and overcome enemy defenses."
+    
+    # Concepts
+    concept_FAE_siege:        "Siege Ability"
+    concept_FAE_entrenchment: "Fort Entrenchment"
+    FAE_txt_added_by_FAE:     "#italic This is a feature of the #blue Forts & Engineers#! mod.#!"
+    
+    FAE_txt_siege:    "[concept_FAE_siege]"
+    FAE_txt_entrench: "[concept_FAE_entrenchment]"
+    FAE_txt_forts:    "[GetBuildingType('FAE_building_forts').GetName]"
+    
+    FAE_txt_battles: "At the start of every [concept_battle] taking place in a [concept_state] with a $FAE_txt_forts$ [concept_building], the total $FAE_txt_siege$ and $FAE_txt_entrench$ is calculated from the number of [Concept('concept_unit', '$concept_units$')] in the battle on the attacking and defending sides, respectively."
+    
+    FAE_txt_siege_stats:   "The per-[Concept('concept_unit', 'unit')] $FAE_txt_siege$ is calculated from:\n$FAE_txt_siege_stats_1$\n$FAE_txt_siege_stats_2$\n$FAE_txt_siege_stats_3$\n$FAE_txt_siege_stats_4$\n$FAE_txt_siege_stats_5$\n$FAE_txt_siege_stats_6$\n$FAE_txt_siege_stats_7$"
+    FAE_txt_siege_stats_1: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_combat_engies')]#! if its [concept_military_formation] has the [GetMobilizationOption('FAE_mo_combat_engineers').GetName] [concept_mobilization_option] active"
+    FAE_txt_siege_stats_2: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_heavy_tank')]#! if it is a [GetCombatUnitType('combat_unit_type_heavy_tank').GetName] [Concept('concept_combat_unit_type', 'Unit')]"
+    FAE_txt_siege_stats_3: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_light_tank')]#! if it is a [GetCombatUnitType('combat_unit_type_light_tanks').GetName] [Concept('concept_combat_unit_type', 'Unit')]"
+    FAE_txt_siege_stats_4: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_siege_arty')]#! if it is a [GetCombatUnitType('combat_unit_type_siege_artillery').GetName] [Concept('concept_combat_unit_type', 'Unit')]"
+    FAE_txt_siege_stats_5: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_shrapnel_arty')]#! if it is a [GetCombatUnitType('combat_unit_type_shrapnel_artillery').GetName] [Concept('concept_combat_unit_type', 'Unit')]"
+    FAE_txt_siege_stats_6: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_mobile_arty')]#! if it is a [GetCombatUnitType('combat_unit_type_mobile_artillery').GetName] [Concept('concept_combat_unit_type', 'Unit')]"
+    FAE_txt_siege_stats_7: "#p +[GetPlayer.MakeScope.ScriptValue('FAE_siege_cannon_arty')]#! if it is a [GetCombatUnitType('combat_unit_type_cannon_artillery').GetName] [Concept('concept_combat_unit_type', 'Unit')]"
+    
+    FAE_txt_min_fort_bonus: "#p [Multiply_CFixedPoint( GetPlayer.MakeScope.ScriptValue('FAE_WEAK_FORT_MIN_BONUS'), '(CFixedPoint)100' )]%#!"
+    
+    concept_FAE_siege_desc: "$FAE_txt_siege$ directly counters [concept_FAE_entrenchment].\n\n$FAE_txt_battles$\n\n$FAE_txt_siege$ acts as a direct reduction of $FAE_txt_entrench$ on a 1-to-1 basis, and the more $FAE_txt_entrench$ is reduced, the smaller the defender bonuses to [concept_defense] & [concept_kill_rate] and the attacker malus to [Concept('concept_occupation', '$concept_battle$ $concept_occupation$')] will be.\n\n$FAE_txt_siege_stats$\n\n$FAE_txt_added_by_FAE$"
+    
+    concept_FAE_entrenchment_desc: "$FAE_txt_entrench$ measures the effectiveness of $FAE_txt_forts$ being utilized by defending [Concept('concept_unit', 'Units')].\n\n$FAE_txt_battles$\n\nTotal $FAE_txt_entrench$ for a [concept_battle] is determined by taking the total $FAE_txt_entrench$ output from the $FAE_txt_forts$ [concept_building] involved in the [concept_battle] and multiplying it by the total number of defending [Concept('concept_unit', 'Units')] participating in the [concept_battle]. After calculating both values, the attacker's $FAE_txt_siege$ is subtracted from the defender's $FAE_txt_entrench$. This value is divded by the original $FAE_txt_entrench$ value to determine a fraction representing the #v effectiveness#! of $FAE_txt_forts$ in this [concept_battle]. Therefore, as $FAE_txt_siege$ increases, $FAE_txt_forts$ become less effective.\n\nReduced effectiveness of $FAE_txt_forts$ will reduce the defender bonuses to [concept_defense] & [concept_kill_rate] and the attacker malus to [Concept('concept_occupation', '$concept_battle$ $concept_occupation$')] by a certain percentage based on the fraction calculated above. Regardless of how low this fraction is, $FAE_txt_forts$ are guaranteed to be at least $FAE_txt_min_fort_bonus$ effective.\n\n$FAE_txt_added_by_FAE$"

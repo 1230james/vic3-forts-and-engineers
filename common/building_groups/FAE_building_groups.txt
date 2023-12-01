@@ -13,7 +13,8 @@
 	
 	urbanization = 2
     
-    hiring_rate = 0.01
+    min_hiring_rate = 0.01
+    max_hiring_rate = 0.01
     
-    proportionality_limit = 1
+    proportionality_limit = 0.5
 }

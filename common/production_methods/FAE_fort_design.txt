@@ -14,8 +14,6 @@
             
             building_employment_engineers_add =  50
             building_employment_laborers_add  = 450
-            
-            building_training_rate_add = 30
         }
         
         workforce_scaled = {
@@ -49,8 +47,6 @@ FAE_pm_polygonal_forts = {
             
             building_employment_engineers_add = 100
             building_employment_laborers_add  = 400
-            
-            building_training_rate_add = 20
         }
         
         workforce_scaled = {
@@ -84,15 +80,13 @@ FAE_pm_bunkers = {
             
             building_employment_engineers_add = 150
             building_employment_laborers_add  = 350
-            
-            building_training_rate_add = 10
-            
-            unit_FAE_entrenchment_add = 6
         }
         
         workforce_scaled = {
             unit_defense_add     = 4
             unit_occupation_mult = -0.03
+            
+            unit_FAE_entrenchment_add = 6
         }
     }
     
@@ -112,8 +106,6 @@ FAE_pm_fort_design_mothballed = {
         level_scaled = {
             building_employment_engineers_add = 10
             building_employment_laborers_add  = 40
-            
-            building_training_rate_add = 100 # no need to have slow hiring to emulate slow fort maintenance/repairs
         }
     }
 }

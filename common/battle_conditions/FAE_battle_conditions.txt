@@ -49,123 +49,24 @@ FAE_battle_condition_attacker_fort_breached = {
     weight = {
         value = 0.5
         
-        # Static bonus for using engineer specialists
-        if = {
-            limit = {
-                FAE_sv_get_character_total_engineers_pm_usage > 0.5
-            }
-            add = 1
-        }
-        
-        # Static bonus for using infiltrator specialists
-        if = {
-            limit = {
-                battle = {
-                    OR = { # I cba to make more script values to do a proper calculation of this crap
-                        battle_side_pm_usage = {
-                            target = scope:character.owner
-                            production_method = pm_infiltrators
-                            value > 0.5
-                        }
-                        battle_side_pm_usage = {
-                            target = scope:character.owner
-                            production_method = pm_infiltrators_conscription
-                            value > 0.5
-                        }
-                    }
-                }
-            }
-            add = 1
-        }
-
-        # Static bonuses for using tanks
-        if = {
-            limit = {
-                battle = {
-                    OR = {
-                        battle_side_pm_usage = {
-                            target = scope:character.owner
-                            production_method = pm_mechanized_infantry
-                            value > 0.5
-                        }
-                        battle_side_pm_usage = {
-                            target = scope:character.owner
-                            production_method = pm_mechanized_infantry_conscription
-                            value > 0.5
-                        }
-                    }
-                }
-            }
-            if = {
-                limit = {
-                    scope:state.b:FAE_building_forts = {
-                        has_active_production_method = FAE_pm_wood_palisades
-                    }
-                }
-                add = 1
-            }
-            else_if = {
-                limit = {
-                    scope:state.b:FAE_building_forts = {
-                        has_active_production_method = FAE_pm_stone_iron
-                    }
-                }
-                add = 0.5
-            }
-            # Concrete omitted (no bonus)
-        }
-        
-        # Static bonuses for HAUBITZE (siege artillery)
-        if = {
-            limit = {
-                battle = {
-                    OR = {
-                        battle_side_pm_usage = {
-                            target = scope:character.owner
-                            production_method = pm_siege_artillery
-                            value > 0.5
-                        }
-                        battle_side_pm_usage = {
-                            target = scope:character.owner
-                            production_method = pm_siege_artillery_conscription
-                            value > 0.5
-                        }
-                    }
-                }
-            }
-            if = {
-                limit = {
-                    scope:state.b:FAE_building_forts = {
-                        has_active_production_method = FAE_pm_wood_palisades
-                    }
-                }
-                add = 1.5
-            }
-            else_if = {
-                limit = {
-                    scope:state.b:FAE_building_forts = {
-                        has_active_production_method = FAE_pm_stone_iron
-                    }
-                }
-                add = 1
-            }
-            else_if = {
-                limit = {
-                    scope:state.b:FAE_building_forts = {
-                        has_active_production_method = FAE_pm_steel_concrete
-                    }
-                }
-                add = 0.5
-            }
-        }
-        
-        # Apply commander's traits
+        # Apply commander's traits (vanilla conditions do this first apparently)
         multiply = {
             value = 1
             scope:character = {
                 add = modifier:character_FAE_battle_condition_attacker_fort_breached_mult
             }
             min = 0
+        }
+        
+        # Calculate modifier based on siege / entrenchment ratio
+        add = {
+            add     = scope:character.var:FAE_siege
+            divide  = {
+                add = scope:character.opposing_commander.var:FAE_entrenchment
+                min = 0.001 # Prevent divide by 0
+            }
+            min = 0
+            max = 2.5
         }
         
         # Adjust weight based on avg atk/def gap
@@ -207,7 +108,7 @@ FAE_battle_condition_defender_fort_breached = {
         unit_kill_rate_add     = -0.10
     }
     
-    possible = {
+    instant_switch = {
         # Generals existence check
         scope:character ?= {
             has_role = general
@@ -236,7 +137,5 @@ FAE_battle_condition_defender_fort_breached = {
         }
     }
     
-    weight = {
-        value = 1000000
-    }
+    weight = 1
 }

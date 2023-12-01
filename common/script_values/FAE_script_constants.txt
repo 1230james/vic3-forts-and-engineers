@@ -2,11 +2,11 @@
 FAE_WEAK_FORT_MIN_BONUS = 0.25
 
 # Siege values - keep values set in mob. options & unit types up to date
-FAE_siege_combat_engies = 1
-FAE_siege_light_tank    = 1
+FAE_siege_combat_engies = 4
+FAE_siege_light_tank    = 8
 
-FAE_siege_heavy_tank    = 1
-FAE_siege_siege_arty    = 1
-FAE_siege_shrapnel_arty = 1
-FAE_siege_mobile_arty   = 1
-FAE_siege_cannon_arty   = 1
+FAE_siege_heavy_tank    = 10
+FAE_siege_siege_arty    = 6
+FAE_siege_shrapnel_arty = 4
+FAE_siege_mobile_arty   = 3
+FAE_siege_cannon_arty   = 2

@@ -108,6 +108,20 @@ FAE_on_battle_started = {
                 }
             }
             
+            # Save as variables for later use (battle conditions)
+            scope:attacker = {
+                set_variable = {
+                    name  = FAE_siege
+                    value = local_var:total_siege
+                }
+            }
+            scope:defender = {
+                set_variable = {
+                    name  = FAE_entrenchment
+                    value = local_var:total_entrenchment
+                }
+            }
+            
             # Attacker has engineers
             if = {
                 # Condition

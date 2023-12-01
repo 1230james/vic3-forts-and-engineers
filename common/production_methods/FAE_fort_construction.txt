@@ -1,6 +1,8 @@
 ﻿FAE_pm_wood_palisades = {
     texture = "gfx/interface/icons/production_method_icons/FAE_pm_palisades.dds"
     
+    is_default = yes
+    
     unlocking_production_methods = {
         FAE_pm_normal
     }
@@ -12,10 +14,6 @@
             
             unit_FAE_entrenchment_add = 1
         }
-        
-        level_scaled = {
-            # building_training_rate_add = 30
-        }
     }
     
     timed_modifiers = {
@@ -25,8 +23,6 @@
 
 FAE_pm_stone_iron = {
     texture = "gfx/interface/icons/production_method_icons/FAE_pm_stone_walls.dds"
-    
-    is_default = yes
     
     unlocking_production_methods = {
         FAE_pm_normal
@@ -48,8 +44,6 @@ FAE_pm_stone_iron = {
         
         level_scaled = {
             building_employment_laborers_add = 100
-            
-            # building_training_rate_add = 20
         }
     }
     
@@ -81,8 +75,6 @@ FAE_pm_steel_concrete = {
         
         level_scaled = {
             building_employment_laborers_add = 200
-            
-            # building_training_rate_add = 10
         }
     }
     
