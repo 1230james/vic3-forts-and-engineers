@@ -1,10 +1,15 @@
 {
     "name" : "Forts & Engineers",
     "id" : "",
-    "version" : "1.1.0",
-    "supported_game_version" : "1.*",
+    "version" : "2.0.0",
+    "supported_game_version" : "1.5.*",
     "short_description" : "",
-    "tags" : [],
+    "tags" : [
+        "Expansion",
+        "Economy And Buildings",
+        "Gameplay",
+        "Warfare"
+    ],
     "relationships" : [],
     "game_custom_data" : {
         "multiplayer_synchronized" : false
