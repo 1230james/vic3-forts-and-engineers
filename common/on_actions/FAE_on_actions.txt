@@ -11,25 +11,6 @@ on_battle_started = {
 
 FAE_on_battle_started = {
     effect = {
-        
-        # TODO: DEBUG - Remove
-        scope:attacker = {
-            owner = {
-                set_variable = {
-                    name  = battle
-                    value = scope:battle
-                }
-            }
-        }
-        scope:defender = {
-            owner = {
-                set_variable = {
-                    name  = battle
-                    value = scope:battle
-                }
-            }
-        }
-        
         if = {
             # Conditional
             limit = {
