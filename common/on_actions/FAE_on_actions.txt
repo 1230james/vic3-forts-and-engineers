@@ -55,6 +55,7 @@ FAE_on_battle_started = {
                 scope:defender ?= {
                     NOR = {
                         has_modifier = FAE_md_fort_defense_strong
+                        has_modifier = FAE_md_fort_defense_mid
                         has_modifier = FAE_md_fort_defense_weak
                     }
                 }
@@ -143,33 +144,75 @@ FAE_on_battle_started = {
                     }
                 }
                 
-                # Apply sapped fort modifier
-                scope:defender = {
-                    add_modifier = {
-                        name       = FAE_md_fort_defense_weak
-                        multiplier = {
-                            add      = 1 # Default value for script math blocks is 0. DO NOT DELETE!!!
-                            add      = scope:state.b:FAE_building_forts.modifier:unit_defense_mult
-                            multiply = scope:state.b:FAE_building_forts.modifier:unit_defense_add
-                            multiply = local_var:attacker_engineer_multiplier
-                        }
+                # Calculate fort modifiers
+                set_local_variable = {
+                    name  = fort_defense_mult
+                    value = {
+                        add      = 1 # Default value for script math blocks is 0. DO NOT DELETE!!!
+                        add      = scope:state.b:FAE_building_forts.modifier:unit_defense_mult
+                        multiply = scope:state.b:FAE_building_forts.modifier:unit_defense_add
+                        multiply = local_var:attacker_engineer_multiplier
                     }
-                    add_modifier = {
-                        name       = FAE_md_fort_kill_rate_weak
-                        multiplier = {
-                            add      = 1
-                            multiply = scope:state.b:FAE_building_forts.modifier:unit_kill_rate_add
-                            multiply = local_var:attacker_engineer_multiplier
-                        }
-                    }
-                    # add_modifier = {
-                        # name       = FAE_md_fort_provinces_lost_weak
-                        # multiplier = {
-                            # add      = 1
-                            # multiply = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
-                            # multiply = local_var:attacker_engineer_multiplier
-                        # }
+                }
+                # set_local_variable = {
+                    # name  = fort_provinces_mult
+                    # value = {
+                        # add      = 1
+                        # multiply = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
+                        # multiply = local_var:attacker_engineer_multiplier
                     # }
+                # }
+                set_local_variable = {
+                    name  = fort_kill_rate_mult
+                    value = {
+                        add      = 1
+                        multiply = scope:state.b:FAE_building_forts.modifier:unit_kill_rate_add
+                        multiply = local_var:attacker_engineer_multiplier
+                    }
+                }
+                
+                # Apply modifiers
+                scope:defender = {
+                    if = {
+                        limit = {
+                            local_var:attacker_engineer_multiplier >= FAE_STRONG_FORT_BONUS_THRESHOLD
+                        }
+                        add_modifier = {
+                            name       = FAE_md_fort_defense_strong
+                            multiplier = local_var:fort_defense_mult
+                        }
+                        add_modifier = {
+                            name       = FAE_md_fort_kill_rate_strong
+                            multiplier = local_var:fort_kill_rate_mult
+                        }
+                        # add_modifier = {
+                            # name       = FAE_md_fort_provinces_lost_strong
+                            # multiplier = local_var:fort_provinces_mult
+                        # }
+                    }
+                    else_if = {
+                        limit = {
+                            local_var:attacker_engineer_multiplier >= FAE_PARTIAL_FORT_BONUS_THRESHOLD
+                        }
+                        add_modifier = {
+                            name       = FAE_md_fort_defense_mid
+                            multiplier = local_var:fort_defense_mult
+                        }
+                        add_modifier = {
+                            name       = FAE_md_fort_kill_rate_mid
+                            multiplier = local_var:fort_kill_rate_mult
+                        }
+                    }
+                    else = {
+                        add_modifier = {
+                            name       = FAE_md_fort_defense_weak
+                            multiplier = local_var:fort_defense_mult
+                        }
+                        add_modifier = {
+                            name       = FAE_md_fort_kill_rate_weak
+                            multiplier = local_var:fort_kill_rate_mult
+                        }
+                    }
                 }
                 scope:attacker ?= {
                     if = {
@@ -209,6 +252,18 @@ FAE_on_battle_started = {
                         # multiplier = scope:state.b:FAE_building_forts.modifier:unit_provinces_lost_mult
                     # }
                 }
+                scope:attacker ?= {
+                    if = {
+                        limit = {
+                            has_modifier = FAE_md_fort_occupation_speed
+                        }
+                        remove_modifier = FAE_md_fort_occupation_speed
+                    }
+                    add_modifier = {
+                        name       = FAE_md_fort_occupation_speed
+                        multiplier = scope:state.b:FAE_building_forts.modifier:unit_occupation_mult
+                    }
+                }
             }
             
             # Save fort for later use
@@ -218,6 +273,8 @@ FAE_on_battle_started = {
                     value = scope:state.b:FAE_building_forts
                 }
             }
+            
+            # TODO: State battle counter
         }
     }
 }
@@ -266,6 +323,12 @@ FAE_on_battle_ended = {
             }
             if = {
                 limit = {
+                    has_modifier = FAE_md_fort_defense_mid
+                }
+                remove_modifier = FAE_md_fort_defense_mid
+            }
+            if = {
+                limit = {
                     has_modifier = FAE_md_fort_defense_weak
                 }
                 remove_modifier = FAE_md_fort_defense_weak
@@ -275,6 +338,12 @@ FAE_on_battle_ended = {
                     has_modifier = FAE_md_fort_kill_rate_strong
                 }
                 remove_modifier = FAE_md_fort_kill_rate_strong
+            }
+            if = {
+                limit = {
+                    has_modifier = FAE_md_fort_kill_rate_mid
+                }
+                remove_modifier = FAE_md_fort_kill_rate_mid
             }
             if = {
                 limit = {
@@ -296,6 +365,7 @@ FAE_on_battle_ended = {
             # }
             
             if = {
+                # TODO: State battle counter
                 limit = {
                     has_variable = FAE_fort_used
                 }

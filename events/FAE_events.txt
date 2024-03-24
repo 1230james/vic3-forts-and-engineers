@@ -16,6 +16,7 @@ FAE_ev.1 = {
                 }
                 
                 if = {
+                    # TODO: Decrement state battles counter
                     limit = {
                         has_variable = FAE_fort_used
                     }
@@ -39,6 +40,12 @@ FAE_ev.1 = {
                 }
                 if = {
                     limit = {
+                        has_modifier = FAE_md_fort_defense_mid
+                    }
+                    remove_modifier = FAE_md_fort_defense_mid
+                }
+                if = {
+                    limit = {
                         has_modifier = FAE_md_fort_defense_weak
                     }
                     remove_modifier = FAE_md_fort_defense_weak
@@ -48,6 +55,12 @@ FAE_ev.1 = {
                         has_modifier = FAE_md_fort_kill_rate_strong
                     }
                     remove_modifier = FAE_md_fort_kill_rate_strong
+                }
+                if = {
+                    limit = {
+                        has_modifier = FAE_md_fort_kill_rate_mid
+                    }
+                    remove_modifier = FAE_md_fort_kill_rate_mid
                 }
                 if = {
                     limit = {
