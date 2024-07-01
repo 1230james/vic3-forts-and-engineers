@@ -7,7 +7,7 @@
     FAE_battle_condition_defender_fort_breached_desc: "적군이 이 지휘관의 요새 일부를 성공적으로 돌파했습니다."
 
     # Buildings
-    FAE_building_forts: "요새화"
+    fae_building_forts: "요새화"
 
     # Character Traits
     FAE_trait_combat_engineer_1: "공병"
@@ -18,26 +18,26 @@
     FAE_trait_combat_engineer_2_desc: "이 지휘관은 전쟁에서의 공병 활용을 전문적으로 이해하고 있습니다."
     FAE_trait_combat_engineer_3_desc: "이 지휘관은 공병을 활용한 현대 전쟁의 정수를 통달했습니다."
 
-    # Modifiers I (modifier_types)
-    modifier_state_FAE_building_forts_max_level_add: "$FAE_building_forts$ 최고 단계"
-    modifier_state_FAE_building_forts_max_level_add_desc: "$FAE_building_forts$ 건물 최고 단계에 대한 보너스 또는 불이익"
+    # Modifiers I (types)
+    state_fae_building_forts_max_level_add: "$fae_building_forts$ 최고 단계"
+    state_fae_building_forts_max_level_add_desc: "$fae_building_forts$ 건물 최고 단계에 대한 보너스 또는 불이익"
 
-    modifier_building_input_small_arms_mult: "@small_arms! $small_arms$ $concept_input_mult$"
-    modifier_building_input_artillery_mult:  "@artillery! $artillery$ $concept_input_mult$"
-    modifier_building_input_ammunition_mult: "@ammunition! $ammunition$ $concept_input_mult$"
+    building_input_small_arms_mult: "@small_arms! $small_arms$ $concept_input_mult$"
+    building_input_artillery_mult:  "@artillery! $artillery$ $concept_input_mult$"
+    building_input_ammunition_mult: "@ammunition! $ammunition$ $concept_input_mult$"
 
-    modifier_building_input_small_arms_mult_desc: "$concept_input_mult_desc$"
-    modifier_building_input_artillery_mult_desc:  "$concept_input_mult_desc$"
-    modifier_building_input_ammunition_mult_desc: "$concept_input_mult_desc$"
+    building_input_small_arms_mult_desc: "$concept_input_mult_desc$"
+    building_input_artillery_mult_desc:  "$concept_input_mult_desc$"
+    building_input_ammunition_mult_desc: "$concept_input_mult_desc$"
 
-    modifier_character_FAE_battle_condition_attacker_fort_breached_mult: "[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_suffix$"
-    modifier_character_FAE_battle_condition_attacker_fort_breached_mult_desc: "$modifier_character_battle_condition_desc_prefix$[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_desc_suffix$"
+    character_FAE_battle_condition_attacker_fort_breached_mult: "[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$character_battle_condition_suffix$"
+    character_FAE_battle_condition_attacker_fort_breached_mult_desc: "$character_battle_condition_desc_prefix$[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$character_battle_condition_desc_suffix$"
     
-    modifier_unit_FAE_siege_add:      "[concept_FAE_siege]"
-    modifier_unit_FAE_siege_add_desc: "The total [concept_FAE_siege] added for each [concept_unit] participating in a [concept_battle]"
+    unit_FAE_siege_add:      "[concept_FAE_siege]"
+    unit_FAE_siege_add_desc: "The total [concept_FAE_siege] added for each [concept_unit] participating in a [concept_battle]"
     
-    modifier_unit_FAE_entrenchment_add:      "[concept_FAE_entrenchment]"
-    modifier_unit_FAE_entrenchment_add_desc: "The total [concept_FAE_entrenchment] added for each [concept_unit] participating in a [concept_battle]"
+    unit_FAE_entrenchment_add:      "[concept_FAE_entrenchment]"
+    unit_FAE_entrenchment_add_desc: "The total [concept_FAE_entrenchment] added for each [concept_unit] participating in a [concept_battle]"
 
     # Modifiers II (modifiers)
     FAE_md_fort_reconstruction: "요새 재건설"
@@ -100,7 +100,7 @@
     
     FAE_txt_siege:    "[concept_FAE_siege]"
     FAE_txt_entrench: "[concept_FAE_entrenchment]"
-    FAE_txt_forts:    "[GetBuildingType('FAE_building_forts').GetName]"
+    FAE_txt_forts:    "[GetBuildingType('fae_building_forts').GetName]"
     
     FAE_txt_battles: "$FAE_txt_forts$ [concept_building]이 있는 [concept_state]에서 시작하는 모든 [concept_battle]에서는 참여하는 공격과 수비 측의 [Concept('concept_unit', '$concept_units$')] 수에 따라 $FAE_txt_siege$과 $FAE_txt_entrench$이 각각 계산됩니다."
     
