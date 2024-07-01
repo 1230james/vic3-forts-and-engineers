@@ -330,7 +330,7 @@ FAE_on_battle_ended = {
                 limit = {
                     # Guard - this on_action is also fired twice
                     scope:defender ?= {
-                        NOR = {
+                        OR = {
                             has_modifier = FAE_md_fort_defense_strong
                             has_modifier = FAE_md_fort_defense_mid
                             has_modifier = FAE_md_fort_defense_weak
