@@ -5,9 +5,9 @@ FAE_battle_condition_attacker_fort_breached = {
     icon = "gfx/interface/icons/battle_conditions/FAE_battle_condition_fort_breached_positive.dds"
     
     modifier = {
-        unit_kill_rate_add = 0.10
-        unit_offense_mult  = 0.50
-        unit_provinces_captured_mult = 0.10
+        unit_kill_rate_add   = 0.10
+        unit_offense_mult    = 0.50
+        unit_occupation_mult = 0.10
     }
     
     possible = {
@@ -22,14 +22,14 @@ FAE_battle_condition_attacker_fort_breached = {
         
         # Check if defender has fort
         province.state = {
-            has_building = FAE_building_forts
+            has_building = fae_building_forts
             OR = {
                 owner = scope:character.opposing_commander.owner
                 owner = {
                     is_in_war_together = scope:character.opposing_commander.owner
                 }
             }
-            this.b:FAE_building_forts = {
+            this.b:fae_building_forts = {
                 NOT = {
                     has_active_production_method = FAE_pm_mothballed
                 }
@@ -53,7 +53,7 @@ FAE_battle_condition_attacker_fort_breached = {
         multiply = {
             value = 1
             scope:character = {
-                add = modifier:character_FAE_battle_condition_attacker_fort_breached_mult
+                add = modifier:character_fae_battle_condition_attacker_fort_breached_mult
             }
             min = 0
         }
@@ -115,12 +115,12 @@ FAE_battle_condition_defender_fort_breached = {
             exists   = opposing_commander
         }
         
-        # Attackers only
+        # Defenders only
         scope:is_advancing_side = no
         
         # Check if defender has fort
         province.state = {
-            has_building = FAE_building_forts
+            has_building = fae_building_forts
             OR = {
                 owner = scope:character.owner
                 owner = {

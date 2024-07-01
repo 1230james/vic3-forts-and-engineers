@@ -5,7 +5,7 @@
 	category = military
     
     modifier = {
-		state_FAE_building_forts_max_level_add = 1
+		state_fae_building_forts_max_level_add = 1
 	}
 	
 	ai_weight = {
@@ -25,7 +25,7 @@ napoleonic_warfare = {
 	}
 	
 	modifier = {
-		state_FAE_building_forts_max_level_add = 1
+		state_fae_building_forts_max_level_add = 1
 	}
 	
 	ai_weight = {
@@ -49,7 +49,7 @@ field_works = {
 		# Lower kill rate?
 		unit_army_defense_mult = 0.1
 		
-		state_FAE_building_forts_max_level_add = 1
+		state_fae_building_forts_max_level_add = 1
 	}
 	
 	unlocking_technologies = {
@@ -75,7 +75,7 @@ breech_loading_artillery = {
 	}
 	
 	modifier = {
-		state_FAE_building_forts_max_level_add = 2
+		state_fae_building_forts_max_level_add = 2
 	}
 	
 	ai_weight = {
@@ -91,15 +91,15 @@ defense_in_depth = {
 	category = military
 	
 	modifier = {
-		unit_morale_loss_mult = -0.05
 		# defensive bonus, either to the army or ideally to fortifications
 		unit_army_defense_mult = 0.1
 		
-		state_FAE_building_forts_max_level_add = 2
+		state_fae_building_forts_max_level_add = 2
 	}
 	
 	unlocking_technologies = {	
 		trench_works
+		handcranked_machine_gun
 	}
 	
 	ai_weight = {
@@ -114,12 +114,11 @@ concrete_fortifications = {
 	category = military
 	
 	modifier = {
-		unit_morale_loss_mult = -0.05
 		# build the maginot line and be completely unstoppable, forever, especially if you're France
 		# bonus to general defensiveness or specifically to forts if they become a thing
 		unit_army_defense_mult = 0.1
 		
-		state_FAE_building_forts_max_level_add = 3
+		state_fae_building_forts_max_level_add = 3
 	}
 	
 	unlocking_technologies = {	
