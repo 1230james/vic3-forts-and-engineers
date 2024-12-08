@@ -1,6 +1,6 @@
 ﻿fae_building_forts = {
     building_group = FAE_bg_forts
-    texture        = "gfx/interface/icons/building_icons/FAE_building_forts.dds"
+    icon           = "gfx/interface/icons/building_icons/FAE_building_forts.dds"
     background     = "gfx/interface/icons/building_icons/backgrounds/building_panel_bg_military.dds"
     
     has_max_level = yes
@@ -27,7 +27,7 @@
             limit = {
                 is_capital = yes
             }
-            add = 10000
+            add = 500000
         }
         
         # Borders capital state
@@ -38,7 +38,7 @@
                     is_capital = yes
                 }
             }
-            add = 3000
+            add = 150000
         }
         
         # Border state
@@ -65,7 +65,7 @@
                     }
                 }
             }
-            add = 5000
+            add = 250000
             
             # Maginot Line
             if = {
@@ -77,7 +77,7 @@
                         state_region = s:STATE_FRANCHE_COMTE
                     }
                 }
-                add = 5000
+                add = 250000
             }
         }
         
