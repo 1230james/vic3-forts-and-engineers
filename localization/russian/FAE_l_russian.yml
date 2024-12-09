@@ -30,8 +30,8 @@
     building_input_artillery_mult_desc:  "$concept_input_mult_desc$"
     building_input_ammunition_mult_desc: "$concept_input_mult_desc$"
     
-    character_FAE_battle_condition_attacker_fort_breached_mult:      "[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$character_battle_condition_suffix$"
-    character_FAE_battle_condition_attacker_fort_breached_mult_desc: "$character_battle_condition_desc_prefix$[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$character_battle_condition_desc_suffix$"
+    character_FAE_battle_condition_attacker_fort_breached_mult:      "[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_suffix$"
+    character_FAE_battle_condition_attacker_fort_breached_mult_desc: "$modifier_character_battle_condition_desc_prefix$[GetBattleCondition('FAE_battle_condition_attacker_fort_breached').GetName]$modifier_character_battle_condition_desc_suffix$"
     
     unit_FAE_siege_add:      "[concept_FAE_siege]"
     unit_FAE_siege_add_desc: "The total [concept_FAE_siege] added for each [concept_unit] participating in a [concept_battle]"
