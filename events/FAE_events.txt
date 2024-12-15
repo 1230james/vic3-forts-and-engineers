@@ -138,7 +138,7 @@ FAE_ev.2 = {
 		scope:attacker ?= {
             if = {
                 limit = {
-                    is_in_battle = no
+                    is_attacker_in_battle = no
                 }
                 
                 if = {

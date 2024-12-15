@@ -1,8 +1,9 @@
 {
     "name" : "Forts & Engineers",
-    "id" : "",
-    "version" : "2.1.2",
-    "supported_game_version" : "1.7.*",
+    "id" : "xyz.1230james.forts_and_engineers",
+    "version" : "2.1.3",
+    "game_id" : "victoria3",
+    "supported_game_version" : "1.8.*",
     "short_description" : "",
     "tags" : [
         "Expansion",
@@ -10,7 +11,15 @@
         "Gameplay",
         "Warfare"
     ],
-    "relationships" : [],
+    "relationships" : [
+        {
+            "rel_type" : "dependency",
+            "id" : "xyz.1230james.multiline_pms",
+            "display_name" : "Multi-line Production Methods Framework",
+            "resource_type" : "mod",
+            "version" : "*"
+        }
+    ],
     "game_custom_data" : {
         "multiplayer_synchronized" : false
     }
