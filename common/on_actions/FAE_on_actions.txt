@@ -523,3 +523,23 @@ FAE_oa_on_war_end = {
         }
     }
 }
+
+# Root = The applicable country
+# scope:technology = The technology type they just acquired
+on_acquired_technology = {
+    on_actions = {
+        FAE_oa_on_acquired_technology
+    }
+}
+
+FAE_oa_on_acquired_technology = {
+    trigger = {
+        has_game_started = yes
+    }
+    effect = {
+        trigger_event = {
+            id   = FAE_ev.3
+            days = 1 # Delay for modifier update
+        }
+    }
+}

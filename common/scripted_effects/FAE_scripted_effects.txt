@@ -93,3 +93,109 @@ FAE_se_calculate_siege = {
         }
     }
 }
+
+# Scope: country
+# Calculates and (re)applies backup modifier to increase fort levels for hands-off mod compatibility in case someone
+# comes in and touches the tech definitions
+FAE_se_refresh_fort_max_lvl = {
+    if = {
+        limit = {
+            NOT = {
+                has_variable = FAE_refresh_fort_max_lvl_debounce
+            }
+        }
+        
+        # Debounce needed in case multiple techs are researched on the same day
+        # Due to how the math works, firing this multiple times in a single day causes the correction amount to be over-
+        # calculated, resulting in more levels than they should be getting.
+        set_variable = {
+            name  = FAE_refresh_fort_max_lvl_debounce
+            value = yes
+            days  = 1
+        }
+        
+        remove_modifier = FAE_md_fort_max_level
+        set_local_variable = {
+            name  = expected_max_lvl
+            value = {
+                if = {
+                    limit = {
+                        has_technology_researched = standing_army
+                    }
+                    add = 1
+                }
+                if = {
+                    limit = {
+                        has_technology_researched = napoleonic_warfare
+                    }
+                    add = 1
+                }
+                if = {
+                    limit = {
+                        has_technology_researched = field_works
+                    }
+                    add = 1
+                }
+                if = {
+                    limit = {
+                        has_technology_researched = breech_loading_artillery
+                    }
+                    add = 2
+                }
+                if = {
+                    limit = {
+                        has_technology_researched = defense_in_depth
+                    }
+                    add = 2
+                }
+                if = {
+                    limit = {
+                        has_technology_researched = concrete_fortifications
+                    }
+                    add = 3
+                }
+            }
+        }
+        
+        if = {
+            limit = {
+                local_var:expected_max_lvl != {
+                    add = modifier:state_fae_building_forts_max_level_add
+                    subtract = {
+                        if = {
+                            limit = {
+                                has_variable = FAE_max_lvl_correction
+                            }
+                            add = var:FAE_max_lvl_correction
+                        }
+                    }
+                }
+            }
+            if = {
+                limit = {
+                    NOT = {
+                        has_variable = FAE_max_lvl_correction
+                    }
+                }
+                set_variable = {
+                    name  = FAE_max_lvl_correction
+                    value = 0
+                }
+            }
+            set_variable = {
+                name  = FAE_max_lvl_correction
+                value = {
+                    add      = local_var:expected_max_lvl
+                    subtract = {
+                        add      = modifier:state_fae_building_forts_max_level_add
+                        subtract = var:FAE_max_lvl_correction
+                    }
+                }
+            }
+            add_modifier = {
+                name = FAE_md_fort_max_level
+                multiplier = var:FAE_max_lvl_correction
+            }
+        }
+    }
+}

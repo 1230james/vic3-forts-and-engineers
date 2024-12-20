@@ -20,6 +20,24 @@ building_input_ammunition_mult = {
     percent = yes
 }
 
+building_soldiers_mortality_mult = {
+    decimals = 1
+    color = bad
+    percent = yes
+    game_data = {
+        ai_value = 0
+    }
+}
+
+building_officers_mortality_mult = {
+    decimals = 1
+    color = bad
+    percent = yes
+    game_data = {
+        ai_value = 0
+    }
+}
+
 # Battle condition modifiers
 character_fae_battle_condition_attacker_fort_breached_mult = {
     color    = good
@@ -34,7 +52,7 @@ unit_fae_siege_add = { # Mainly for aesthetic purposes
     decimals = 0
     
     game_data = {
-        ai_value = 1000
+        ai_value = 10000000
     }
 }
 
@@ -44,6 +62,6 @@ unit_fae_entrenchment_add = { # Actually sorta functional
     decimals = 0
     
     game_data = {
-        ai_value = 1000
+        ai_value = 10000000
     }
 }

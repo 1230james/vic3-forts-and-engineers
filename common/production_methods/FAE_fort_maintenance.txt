@@ -1,5 +1,5 @@
 ﻿FAE_pm_normal = {
-    texture = "gfx/interface/icons/production_method_icons/power_of_the_purse.dds"
+    texture = "gfx/interface/icons/production_method_icons/FAE_pm_in_service.dds"
     
     is_default = yes
     
