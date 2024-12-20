@@ -57,6 +57,8 @@
     FAE_md_fort_provinces_lost_strong: "$FAE_md_fort_defense_strong$"
     FAE_md_fort_provinces_lost_weak:   "$FAE_md_fort_defense_weak$"
     
+    FAE_md_fort_max_level: "$state_fae_building_forts_max_level_add$"
+    
     # Production Method Groups
     FAE_pmg_fort_design: "요새 설계"
     FAE_pmg_fort_construction: "건설 자재"
