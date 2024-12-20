@@ -151,3 +151,12 @@ FAE_ev.2 = {
         }
 	}
 }
+
+FAE_ev.3 = {
+	type = country_event
+	hidden = yes
+    
+    immediate = {
+        FAE_se_refresh_fort_max_lvl = yes
+    }
+}
