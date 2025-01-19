@@ -27,7 +27,7 @@
             limit = {
                 is_capital = yes
             }
-            add = 500000
+            add = 5000
         }
         
         # Borders capital state
@@ -38,7 +38,7 @@
                     is_capital = yes
                 }
             }
-            add = 150000
+            add = 2500
         }
         
         # Border state
@@ -65,19 +65,22 @@
                     }
                 }
             }
-            add = 250000
+            add = 1000
             
             # Maginot Line
             if = {
                 limit = {
                     c:FRA ?= owner
+                    c:FRA ?= {
+                        has_technology_researched = concrete_fortifications
+                    }
                     OR = {
                         state_region = s:STATE_ALSACE_LORRAINE
                         state_region = s:STATE_LORRAINE
                         state_region = s:STATE_FRANCHE_COMTE
                     }
                 }
-                add = 250000
+                add = 10000
             }
         }
         
@@ -99,6 +102,19 @@
                 }
             }
             multiply = 10
+        }
+        
+        # No money
+        if = {
+            limit = {
+                owner ?= {
+                    OR = {
+                        weekly_net_fixed_income < 5000
+                        scaled_debt > 0
+                    }
+                }
+            }
+            multiply = 0
         }
     }
 }

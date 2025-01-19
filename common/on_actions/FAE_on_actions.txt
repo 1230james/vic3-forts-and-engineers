@@ -543,3 +543,117 @@ FAE_oa_on_acquired_technology = {
         }
     }
 }
+
+on_monthly_pulse = {
+    on_actions = {
+        FAE_oa_on_monthly_pulse
+    }
+}
+
+FAE_oa_on_monthly_pulse = {
+    effect = {
+        every_country = {
+            # Mothball
+            if = {
+                limit = {
+                    is_at_war = no
+                    is_diplomatic_play_committed_participant = no
+                    OR = {
+                        scaled_debt > 0.50
+                        AND = {
+                            scaled_debt > 0.05
+                            weekly_net_fixed_income < 0
+                        }
+                    }
+                }
+                every_scope_state = {
+                    limit = {
+                        has_building = fae_building_forts
+                    }
+                    activate_production_method = {
+                        building_type     = fae_building_forts
+                        production_method = FAE_pm_mothballed
+                    }
+                }
+            }
+            
+            # Recommission
+            # Will be done piecemeal
+            else_if = {
+                limit = {
+                    scaled_gold_reserves > 0.05
+                    weekly_net_fixed_income >= 5000
+                    any_scope_state = {
+                        has_building = fae_building_forts
+                        is_production_method_active = {
+                            building_type     = fae_building_forts
+                            production_method = FAE_pm_mothballed
+                        }
+                    }
+                }
+                if = { # Reopen fort in capital first
+                    limit = {
+                        capital = {
+                            has_building = fae_building_forts
+                            is_production_method_active = {
+                                building_type     = fae_building_forts
+                                production_method = FAE_pm_mothballed
+                            }
+                        }
+                    }
+                    capital = {
+                        activate_production_method = {
+                            building_type     = fae_building_forts
+                            production_method = FAE_pm_normal
+                        }
+                    }
+                }
+                else_if = { # Then capital-adjacents
+                    limit = {
+                        capital = {
+                            any_neighbouring_state = {
+                                THIS.owner = PREV.owner
+                                has_building = fae_building_forts
+                                is_production_method_active = {
+                                    building_type     = fae_building_forts
+                                    production_method = FAE_pm_mothballed
+                                }
+                            }
+                        }
+                    }
+                    capital = {
+                        random_neighbouring_state = {
+                            limit = {
+                                THIS.owner = PREV.owner
+                                has_building = fae_building_forts
+                                is_production_method_active = {
+                                    building_type     = fae_building_forts
+                                    production_method = FAE_pm_mothballed
+                                }
+                            }
+                            activate_production_method = {
+                                building_type     = fae_building_forts
+                                production_method = FAE_pm_normal
+                            }
+                        }
+                    }
+                }
+                else = {
+                    random_scope_state = {
+                        limit = {
+                            has_building = fae_building_forts
+                            is_production_method_active = {
+                                building_type     = fae_building_forts
+                                production_method = FAE_pm_mothballed
+                            }
+                        }
+                        activate_production_method = {
+                            building_type     = fae_building_forts
+                            production_method = FAE_pm_normal
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

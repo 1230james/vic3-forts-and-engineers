@@ -1,4 +1,4 @@
-﻿# Root: Battle
+﻿# Scope: Battle
 # Set a local variable named `total_siege` before calling
 # `SCOPE` should be either `attacker` or `character` depending on if it's being called from the on_battle_started OA or
 # for a battle condition, respectively
