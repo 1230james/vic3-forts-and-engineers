@@ -18,6 +18,17 @@ FAE_md_fort_recommission = {
     building_input_ammunition_mult = -0.5
 }
 
+# Fort informative modifiers
+FAE_md_total_siege = {
+    icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_gear_neutral.dds
+    character_fae_total_siege = 1
+}
+
+FAE_md_total_entrenchment = {
+    icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_gear_neutral.dds
+    character_fae_total_entrenchment = 1
+}
+
 # Fort combat modifiers
 FAE_md_fort_in_battle = {
     icon = gfx/interface/icons/timed_modifier_icons/FAE_modifier_fort_defense_negative.dds
