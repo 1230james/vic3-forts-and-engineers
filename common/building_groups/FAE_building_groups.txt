@@ -3,7 +3,7 @@
 
 	always_possible = yes
 	
-	# is_military = yes # Can't downgrade buildings of military type anymore
+	# is_military = yes # Can't construct nor downgrade buildings of military type anymore
 	
 	is_government_funded = yes
 

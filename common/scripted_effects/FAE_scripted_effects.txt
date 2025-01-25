@@ -32,7 +32,18 @@ FAE_se_calculate_siege = {
             }
             change_local_variable = {
                 name = total_siege
-                add  = FAE_siege_combat_engies
+                add  = {
+                    add = FAE_siege_combat_engies
+                    
+                    if = {
+                        limit = {
+                            owner = {
+                                has_technology_researched = dynamite
+                            }
+                        }
+                        add = FAE_siege_combat_engies_tnt
+                    }
+                }
             }
         }
         
@@ -89,6 +100,43 @@ FAE_se_calculate_siege = {
             change_local_variable = {
                 name = total_siege
                 add  = FAE_siege_cannon_arty
+            }
+        }
+    }
+    
+    if = {
+        limit = {
+            scope:$SCOPE$.owner = {
+                is_ai = yes
+            }
+        }
+        set_local_variable = {
+            name  = total_siege
+            value = {
+                add = local_var:total_siege
+                multiply = {
+                    add  = 1
+                    if = {
+                        limit = { has_game_rule = FAE_grs_ai_siege_low }
+                        add   = FAE_ai_mult_low
+                    }
+                    else_if = {
+                        limit = { has_game_rule = FAE_grs_ai_siege_med }
+                        add   = FAE_ai_mult_med
+                    }
+                    else_if = {
+                        limit = { has_game_rule = FAE_grs_ai_siege_hi }
+                        add   = FAE_ai_mult_hi
+                    }
+                    else_if = {
+                        limit = { has_game_rule = FAE_grs_ai_siege_vhi }
+                        add   = FAE_ai_mult_vhi
+                    }
+                    else_if = {
+                        limit = { has_game_rule = FAE_grs_ai_siege_ext }
+                        add   = FAE_ai_mult_ext
+                    }
+                }
             }
         }
     }
