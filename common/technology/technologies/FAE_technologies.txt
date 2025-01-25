@@ -1,4 +1,27 @@
-﻿standing_army = {
+﻿dynamite = {
+	# Unlocks Vacuum Evaporation PM in Chemical Plants
+	# Unlocks Explosive Shells PM in Munitions Plants
+	# Unlocks Dynamite PM in Coal, Iron, Lean, Sulfur Mines
+	# Countries get a +25% chance of discovering new resources
+	era = era_3
+	texture = "gfx/interface/icons/invention_icons/dynamite.dds"
+	category = production
+	
+	modifier = {
+		country_resource_discovery_chance_mult = 0.25
+        country_fae_combat_engie_siege_add = 2
+	}
+	
+	unlocking_technologies = {	
+		nitroglycerin
+	}
+	
+	ai_weight = {
+		value = 1
+	}
+}
+
+standing_army = {
 	# Unlocks Barracks building
 	era = era_1
 	texture = "gfx/interface/icons/invention_icons/standing_army.dds"

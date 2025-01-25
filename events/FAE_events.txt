@@ -107,6 +107,18 @@ FAE_ev.1 = {
                     # }
                     # remove_modifier = FAE_md_fort_provinces_lost_weak
                 # }
+                if = {
+                    limit = {
+                        has_modifier = FAE_md_total_siege
+                    }
+                    remove_modifier = FAE_md_total_siege
+                }
+                if = {
+                    limit = {
+                        has_modifier = FAE_md_total_entrenchment
+                    }
+                    remove_modifier = FAE_md_total_entrenchment
+                }
             }
         }
         
@@ -146,6 +158,12 @@ FAE_ev.2 = {
                         has_modifier = FAE_md_fort_occupation_speed
                     }
                     remove_modifier = FAE_md_fort_occupation_speed
+                }
+                if = {
+                    limit = {
+                        has_modifier = FAE_md_total_siege
+                    }
+                    remove_modifier = FAE_md_total_siege
                 }
             }
         }

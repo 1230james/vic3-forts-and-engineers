@@ -52,7 +52,17 @@ unit_fae_siege_add = { # Mainly for aesthetic purposes
     decimals = 0
     
     game_data = {
-        ai_value = 10000000
+        ai_value = 10000
+    }
+}
+
+country_fae_combat_engie_siege_add = { # Also mainly aesthetic
+    color    = good
+    percent  = no
+    decimals = 0
+    
+    game_data = {
+        ai_value = 0
     }
 }
 
@@ -62,6 +72,24 @@ unit_fae_entrenchment_add = { # Actually sorta functional
     decimals = 0
     
     game_data = {
-        ai_value = 10000000
+        ai_value = 10000
+    }
+}
+
+character_fae_total_siege = { # These two are completely aesthetic
+    color     = good
+    percent   = no
+    decimals  = 0
+    game_data = {
+        ai_value = 0
+    }
+}
+
+character_fae_total_entrenchment = {
+    color     = good
+    percent   = no
+    decimals  = 0
+    game_data = {
+        ai_value = 0
     }
 }
