@@ -567,7 +567,12 @@ on_monthly_pulse = {
 
 FAE_oa_on_monthly_pulse = {
     effect = {
+        # AI fort mothballing manager
         every_country = {
+            limit = {
+                is_ai = yes
+            }
+            
             # Mothball
             if = {
                 limit = {
