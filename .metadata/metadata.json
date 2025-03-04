@@ -1,7 +1,7 @@
 {
     "name" : "Forts & Engineers",
     "id" : "xyz.1230james.forts_and_engineers",
-    "version" : "2.2.0",
+    "version" : "2.2.1",
     "game_id" : "victoria3",
     "supported_game_version" : "1.8.*",
     "short_description" : "",
