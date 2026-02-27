@@ -113,7 +113,7 @@
             limit = {
                 owner ?= {
                     OR = {
-                        weekly_net_fixed_income < 5000
+                        net_total_income < 5000
                         scaled_debt > 0
                     }
                 }
