@@ -1,0 +1,82 @@
+[
+{
+  "confidence": "reasonable",
+  "info": null,
+  "key": "missing-localization",
+  "locations": [
+    {
+      "column": 1,
+      "from": "MOD",
+      "fullpath": ".\\common\\building_groups\\FAE_building_groups.txt",
+      "length": 12,
+      "line": "FAE_bg_forts = {",
+      "linenr": 1,
+      "path": "common\\building_groups\\FAE_building_groups.txt",
+      "tag": null
+    }
+  ],
+  "message": "missing english, spanish, french, german, russian, korean, simp_chinese, braz_por, japanese, polish and turkish localization key FAE_bg_forts",
+  "severity": "warning",
+  "wiki": null
+},
+{
+  "confidence": "reasonable",
+  "info": "so dynamic modifiers for this item will not be available",
+  "key": "definition-name",
+  "locations": [
+    {
+      "column": 1,
+      "from": "MOD",
+      "fullpath": ".\\common\\battle_conditions\\FAE_battle_conditions.txt",
+      "length": 43,
+      "line": "FAE_battle_condition_attacker_fort_breached = {",
+      "linenr": 4,
+      "path": "common\\battle_conditions\\FAE_battle_conditions.txt",
+      "tag": null
+    }
+  ],
+  "message": "item name contains capital letters, but modifier type definition names must be lowercase",
+  "severity": "untidy",
+  "wiki": null
+},
+{
+  "confidence": "reasonable",
+  "info": "so dynamic modifiers for this item will not be available",
+  "key": "definition-name",
+  "locations": [
+    {
+      "column": 1,
+      "from": "MOD",
+      "fullpath": ".\\common\\battle_conditions\\FAE_battle_conditions.txt",
+      "length": 43,
+      "line": "FAE_battle_condition_defender_fort_breached = {",
+      "linenr": 102,
+      "path": "common\\battle_conditions\\FAE_battle_conditions.txt",
+      "tag": null
+    }
+  ],
+  "message": "item name contains capital letters, but modifier type definition names must be lowercase",
+  "severity": "untidy",
+  "wiki": null
+},
+{
+  "confidence": "reasonable",
+  "info": "so dynamic modifiers for this item will not be available",
+  "key": "definition-name",
+  "locations": [
+    {
+      "column": 1,
+      "from": "MOD",
+      "fullpath": ".\\common\\building_groups\\FAE_building_groups.txt",
+      "length": 12,
+      "line": "FAE_bg_forts = {",
+      "linenr": 1,
+      "path": "common\\building_groups\\FAE_building_groups.txt",
+      "tag": null
+    }
+  ],
+  "message": "item name contains capital letters, but modifier type definition names must be lowercase",
+  "severity": "untidy",
+  "wiki": null
+}
+]

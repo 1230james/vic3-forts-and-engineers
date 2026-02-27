@@ -1,0 +1,39 @@
+﻿# Injecting Siege Ability stat into units for visual convenience
+# Mod mechanics do not rely on the units having the stat present
+# Keep up to date with values in script_values/FAE_script_constants.txt
+
+INJECT:combat_unit_type_cannon_artillery = {
+    battle_modifier = {
+        unit_fae_siege_add = 2
+    }
+}
+
+INJECT:combat_unit_type_mobile_artillery = {
+    battle_modifier = {
+        unit_fae_siege_add = 3
+    }
+}
+
+INJECT:combat_unit_type_shrapnel_artillery = {
+    battle_modifier = {
+        unit_fae_siege_add = 4
+    }
+}
+
+INJECT:combat_unit_type_siege_artillery = {
+    battle_modifier = {
+        unit_fae_siege_add = 6
+    }
+}
+
+INJECT:combat_unit_type_heavy_tank = {
+    battle_modifier = {
+        unit_fae_siege_add = 10
+    }
+}
+
+INJECT:combat_unit_type_light_tanks = {
+    battle_modifier = {
+        unit_fae_siege_add = 8
+    }
+}

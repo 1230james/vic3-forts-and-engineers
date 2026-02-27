@@ -278,6 +278,11 @@ FAE_on_battle_started = {
             else = {
                 scope:defender = {
                     add_modifier = {
+                        name       = FAE_md_total_entrenchment
+                        multiplier = local_var:total_entrenchment
+                    }
+                    
+                    add_modifier = {
                         name       = FAE_md_fort_defense_strong
                         multiplier = {
                             add      = 1
@@ -295,6 +300,11 @@ FAE_on_battle_started = {
                     # }
                 }
                 scope:attacker ?= {
+                    add_modifier = {
+                        name       = FAE_md_total_siege
+                        multiplier = local_var:total_siege
+                    }
+                    
                     if = {
                         limit = {
                             has_modifier = FAE_md_fort_occupation_speed
@@ -582,7 +592,7 @@ FAE_oa_on_monthly_pulse = {
                         scaled_debt > 0.50
                         AND = {
                             scaled_debt > 0.05
-                            weekly_net_fixed_income < 0
+                            net_total_income < 0
                         }
                     }
                 }
@@ -602,7 +612,7 @@ FAE_oa_on_monthly_pulse = {
             else_if = {
                 limit = {
                     scaled_gold_reserves > 0.05
-                    weekly_net_fixed_income >= 5000
+                    net_total_income >= 5000
                     any_scope_state = {
                         has_building = fae_building_forts
                         is_production_method_active = {

@@ -48,6 +48,8 @@ FAE_se_calculate_siege = {
         }
         
         # Add siege from unit type
+        # Despite being able to guarantee that all the relevant unit types have the siege ability modifier since 1.12,
+        # units are not a scope from which the `modifier` event target works, so we still have to hardcode the math here
         if = {
             limit = {
                 has_unit_type = unit_type:combat_unit_type_light_tanks
