@@ -278,6 +278,11 @@ FAE_on_battle_started = {
             else = {
                 scope:defender = {
                     add_modifier = {
+                        name       = FAE_md_total_entrenchment
+                        multiplier = local_var:total_entrenchment
+                    }
+                    
+                    add_modifier = {
                         name       = FAE_md_fort_defense_strong
                         multiplier = {
                             add      = 1
@@ -295,6 +300,11 @@ FAE_on_battle_started = {
                     # }
                 }
                 scope:attacker ?= {
+                    add_modifier = {
+                        name       = FAE_md_total_siege
+                        multiplier = local_var:total_siege
+                    }
+                    
                     if = {
                         limit = {
                             has_modifier = FAE_md_fort_occupation_speed

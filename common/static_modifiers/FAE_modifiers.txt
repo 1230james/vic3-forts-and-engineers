@@ -1,13 +1,11 @@
 ﻿# Fort PM changed modifiers
 FAE_md_fort_reconstruction = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_gear_negative.dds
-    unit_offense_mult = -0.8
     unit_defense_mult = -0.8
 }
 
 FAE_md_fort_rearmament = {
     icon = gfx/interface/icons/timed_modifier_icons/modifier_rifle_negative.dds
-    unit_offense_mult = -0.2
     unit_defense_mult = -0.2
 }
 
